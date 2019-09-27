@@ -1,0 +1,36 @@
+*{
+    box-sizing: content-box;
+}
+html, body{
+    height:99%;
+    background-image:url("fundo.png");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+.login{
+    text-align: center;
+    background-color:yellow;
+    border-radius:10px;
+    border:10px solid black;
+    width:400px;
+    height:400px;
+}
+.user{
+    padding:15px;
+    margin-top:50px;
+}
+.pass{
+    padding:15px;
+}
+.btns{
+    padding:15px;
+}
+input[type="password"]{
+    margin-left:1px;
+}
+.container{
+    display:flex;
+    justify-content:center;
+    height:100%;
+    align-items:center;
+}
