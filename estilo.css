@@ -26,6 +26,10 @@ html, body{
 .btns{
     padding:15px;
 }
+.btns2{
+    padding:15px;
+
+}
 input[type="password"]{
     margin-left:1px;
 }
