@@ -5,7 +5,7 @@ html, body{
     height:99%;
     background-image:url("fundo.png");
     background-repeat: no-repeat;
-    background-size:100% 100%;
+    background-size:101% 101%;
 }
 .login{
     text-align: center;
