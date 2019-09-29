@@ -41,7 +41,6 @@ input {
 
 .btns2 {
     padding: 15px;
-
 }
 
 input[type="password"] {
@@ -53,6 +52,7 @@ input[type="password"] {
     justify-content: center;
     height: 100%;
     align-items: center;
+    box-shadow: -1px 1px 5px 3px black;
 }
 
 .logo img {
@@ -74,6 +74,15 @@ input[type="password"] {
     background-color: black;
     color: yellow;
     border: none;
+    cursor: pointer;
     border-radius: 10px;
     padding: 0.4rem;
+}
+
+[type="reset"], [type="submit"] {
+    width: 38%;
+}
+
+[type="button"] {
+    width: 80%;
 }
