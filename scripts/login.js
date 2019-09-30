@@ -1,12 +1,18 @@
+let user = document.getElementById("username");
+let pass = document.getElementById("password");
+let entrar = document.getElementById("btnEntrar");
+
 function validaLogin(){
-    let user = document.getElementById("username")
-    let pass = document.getElementById("password")
-    if(user.value == ''){
-        user.disabled
-        alert("Por favor digite seu usuário.")
+    if(user.value == '' || pass.value == ''){
+        entrar.disabled;
+        alert("Usuário e/ou senha inválido.");
     }
-    if(pass.value == ''){
-        pass.disabled
-        alert("Por favor digite a sua senha.")
-    }
+}
+
+/*Função arrow para execucao da limpeza de campos
+limpaLogin = () => user.value=""; pass.value="";*/
+
+function limpaLogin(){
+    user.value = "";
+    pass.value = "";
 }
