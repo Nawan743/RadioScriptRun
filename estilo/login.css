@@ -17,8 +17,8 @@ body {
     border-radius: 10px;
     border: 15px solid black;
     box-shadow: -1px 1px 10px 3px lightgrey;
-    width: 400px;
-    height: 400px;
+    width: 33%;
+    height: 50%;
     font-size: 1.6rem;
 }
 
@@ -26,21 +26,9 @@ input {
     font-size: 1.2rem;
 }
 
-.user {
+.user, .pass, .btns, .btns2 {
     padding: 15px;
     /* margin-top: 50px; */
-}
-
-.pass {
-    padding: 15px;
-}
-
-.btns {
-    padding: 15px;
-}
-
-.btns2 {
-    padding: 15px;
 }
 
 input[type="password"] {
