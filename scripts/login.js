@@ -13,6 +13,8 @@ function validaLogin(){
 limpaLogin = () => user.value=""; pass.value="";*/
 
 function limpaLogin(){
+    let user = document.getElementById("username");
+    let pass = document.getElementById("password");
     user.value = "";
     pass.value = "";
 }
