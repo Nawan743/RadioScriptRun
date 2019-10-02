@@ -82,7 +82,22 @@ label {
 [type="submit"]:hover, [type="reset"]:hover,  [type="button"]:hover {
     box-shadow: 1px 1px 1px black;
 }
+@media screen and (min-width: 600px) and (max-width:1100px) {
+    .container {
+        background-image: url("../images/fundo-tablet.jpg");
+    }
+    /*.login {
+        width: 65%;
+    }
+    #username, #password {
+        margin-left: 0px;
+        width: 85%;
+    }
+    .user label, .pass label {
+        padding: 0px;
+    }*/
 
+}
 @media screen and (max-width: 600px) {
     .container {
         background-image: url("../images/fundo-mobile.jpg");
