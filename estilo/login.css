@@ -16,7 +16,6 @@ body {
     border: 15px solid black;
     box-shadow: -1px 1px 10px 3px lightgrey;
     width: 33%;
-    height: 50%;
     font-size: 1.6rem;
 }
 
@@ -90,7 +89,6 @@ label {
     }
     .login {
         width: 65%;
-        height: 100%;
     }
     #username, #password {
         margin-left: 0px;
@@ -98,5 +96,10 @@ label {
     }
     .user label, .pass label {
         padding: 0px;
+    }
+
+    .user, .pass, .btns, .btns2 {
+        padding: 0.4rem;
+        /* margin-top: 50px; */
     }
 }
