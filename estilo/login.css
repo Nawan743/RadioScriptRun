@@ -5,10 +5,8 @@
 
 html,
 body {
-    height: 99%;
-    background-image: url("../images/fundo.png");
-    background-repeat: no-repeat;
-    background-size: 101% 101%;
+    height: 100%;
+    margin: 0px;
 }
 
 .login {
@@ -40,7 +38,14 @@ input[type="password"] {
     justify-content: center;
     height: 100%;
     align-items: center;
-    box-shadow: -1px 1px 5px 3px black;
+    /* box-shadow: -1px 1px 5px 3px black; */
+    background-image: url("../images/fundo-desktop.png");
+    background-repeat: no-repeat;
+    background-size: 101% 101%;
+}
+
+label {
+    cursor: pointer;
 }
 
 .logo img {
@@ -77,4 +82,20 @@ input[type="password"] {
 
 [type="submit"]:hover, [type="reset"]:hover,  [type="button"]:hover {
     box-shadow: 1px 1px 1px black;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        background-image: url("../images/fundo-mobile.jpg");
+    }
+    .login {
+        width: 65%;
+    }
+    #username, #password {
+        margin-left: 0px;
+        width: 85%;
+    }
+    .user label, .pass label {
+        padding: 0px;
+    }
 }
