@@ -90,6 +90,7 @@ label {
     }
     .login {
         width: 65%;
+        height: 100%;
     }
     #username, #password {
         margin-left: 0px;
