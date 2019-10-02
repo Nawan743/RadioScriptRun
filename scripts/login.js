@@ -8,13 +8,3 @@ function validaLogin(){
         alert("Usuário e/ou senha inválido.");
     }
 }
-
-/*Função arrow para execucao da limpeza de campos
-limpaLogin = () => user.value=""; pass.value="";*/
-
-function limpaLogin(){
-    let user = document.getElementById("username");
-    let pass = document.getElementById("password");
-    user.value = "";
-    pass.value = "";
-}
