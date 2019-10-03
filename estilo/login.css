@@ -118,3 +118,8 @@ label {
         /* margin-top: 50px; */
     }
 }
+
+::placeholder {
+    text-align: center;
+    color: black;
+}
