@@ -60,6 +60,8 @@ label {
 
 #username, #password {
     margin-left: 10px;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 [type="button"], [type="reset"], [type="submit"] {
@@ -123,4 +125,8 @@ label {
     text-align: center;
     color: black;
     font-size: 1.6rem;
+}
+
+#giroflex {
+    width: 25%;
 }
