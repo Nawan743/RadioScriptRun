@@ -64,6 +64,18 @@ label {
     font-size: 1.6rem;
     font-weight: bold;
     font-family: 'Indie Flower', cursive;
+    background-repeat:no-repeat;
+    background-size:contain;
+}
+
+#username{
+    background-image:url(../images/user.png);
+    background-position:0px 50px;
+}
+
+#password{
+    background-image:url(../images/password.png);
+    background-position:0px 50px;
 }
 
 [type="button"], [type="reset"], [type="submit"] {
@@ -130,5 +142,5 @@ label {
 }
 
 #giroflex {
-    width: 25%;
+    width: 18%;
 }

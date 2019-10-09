@@ -8,3 +8,13 @@ function validaLogin(){
         alert("Usuário e/ou senha inválido.");
     }
 }
+
+function userIcon(){
+    document.getElementById("username").style.backgroundPosition = "right";
+    document.getElementById("username").style.transition = "all 0.3s";
+}
+
+function passwordIcon(){
+    document.getElementById("password").style.backgroundPosition = "right";
+    document.getElementById("password").style.transition = "all 0.3s";
+}
