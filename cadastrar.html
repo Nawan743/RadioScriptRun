@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./estilo/login.css" type="text/css">
     
     <!-- JavaScript -->
-    <script type="text/javascript" src="scripts/login.js"></script>
+    <script type="text/javascript" src="scripts/cadastrar.js"></script>
 </head>
 
 <body>
@@ -38,19 +38,25 @@
                 </div>
                 <div class="user">
                     <!-- <label for="username">Player:</label> -->
-                    <input type="text" name="username" id="username" placeholder="Player" onfocus="userIcon()">
+                    <input type="text" name="username" id="username" placeholder="Player">
                 </div>
                 <div class="pass">
                     <!-- <label for="password">Senha: </label> -->
-                    <input type="password" name="password" id="password" placeholder="Senha" onfocus="passwordIcon()">
+                    <input type="password" name="password" id="password" placeholder="Senha">      
+                </div>
+                <div class="pass">
+                    <!-- <label for="password">Senha: </label> -->
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Senha">      
+                </div>
+                <div class="pass">
+                    <!-- <label for="password">Senha: </label> -->
+                    <input type="text" name="email" id="email" placeholder="Email">      
                 </div>
                 <div class="btns">
-                    <input type="submit" id="btnEntrar" value="Entrar" class="btnEntrar" onclick="validaLogin()">
+                    <input type="button" id="btnCadastrar" value="Cadastrar" class="btnEntrar" onclick="cadastro()">
                     <input type="reset" value="Limpar" class="btnLimpar">
                 </div>
             </form>
-            <div class="btns2"><input type="button" value="Cadastrar" onclick="window.location.href='cadastrar.html'"></div>
-            <div class="btns2"><input type="button" value="Visualizar Ranking 🏆"></div>
         </div>
     </div>
 </body>

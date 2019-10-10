@@ -58,7 +58,7 @@ label {
     background-color: yellow;
 }
 
-#username, #password {
+#username, #password, #confirmPassword, #email {
     margin-left: 10px;
     text-align: center;
     font-size: 1.6rem;
