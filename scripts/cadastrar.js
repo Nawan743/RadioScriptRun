@@ -1,26 +1,39 @@
 function cadastro(){
     let usuarios = [];
-    let user = document.getElementById("username").value;
-    let pass = document.getElementById("password").value;
-    let confirmPass = document.getElementById("confirmPassword").value;
-    let email = document.getElementById("email").value;
+    let user = document.getElementById("username");
+    let pass = document.getElementById("password");
+    let confirmPass = document.getElementById("confirmPassword");
+    let email = document.getElementById("email");
     let localBase = JSON.parse(localStorage.getItem("usuarios")); 
+
+    user.style.borderBottom = "2px solid black";
+    pass.style.borderBottom = "2px solid black";
+    confirmPass.style.borderBottom = "2px solid black";
+    email.style.borderBottom = "2px solid black";
+    
     // let regex = new RegExp("[A-z0-9]{6}");
-    if(user == ""){
+    if(user.value == ""){
         alert("Digite o usuario");
-    }else if(pass == "" /*&& regex.test(pass)*/){
+        user.style.borderBottom = "2px solid red";
+    }else if(pass.value == "" /*&& regex.test(pass)*/){
         alert("Digite sua senha");
-    }else if(confirmPass == ""){
+        pass.style.borderBottom = "2px solid red";
+    }else if(confirmPass.value == ""){
         alert("Confirme sua senha");
-    }else if(email == ""){
+        confirmPass.style.borderBottom = "2px solid red";
+    }else if(email.value == ""){
         alert("Digite seu email");
-    }else if (pass != confirmPass){
-        alert("As senhas nao conferem, por favor verifique!")
+        email.style.borderBottom = "2px solid red";
+    }else if (pass.value != confirmPass.value){
+        alert("As senhas nao conferem, por favor verifique!");
+        pass.style.borderBottom = "2px solid red";
+        confirmPass.style.borderBottom = "2px solid red";
+
     }else {
     if(localBase != null){
         usuarios = localBase;
     }
-    usuarios.push({usuario: user, senha: pass, email: email});
+    usuarios.push({usuario: user.value, senha: pass.value, email: email.value});
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     window.location.href='login.html';
     }
