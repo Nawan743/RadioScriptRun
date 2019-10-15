@@ -1,0 +1,78 @@
+* {
+    margin: 0px;
+    box-sizing: content-box;
+    font-family: 'Acme', sans-serif;
+}
+
+main {
+    text-align: center;
+    background-color: yellow;
+    border-radius: 13px;
+    border: 15px solid black;
+    box-shadow: -1px 1px 10px 3px lightgray;
+    width: 33%;
+    font-size: 1.6rem;
+}
+
+#giroflex {
+    width: 18%;
+}
+
+.logo img {
+    width: 105%;
+}
+
+label {
+    cursor: pointer;
+}
+
+input[type=text],
+input[type=password],
+input[type=email] {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: yellow;
+    font-size: 1.6rem;
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+::placeholder {
+    text-align: center;
+    color: black;
+    font-size: 1.6rem;
+}
+
+#loginCheck {
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+label[for="cadastroCheck"] {
+    margin-left: 5%;
+}
+
+input[type=submit],
+input[type=reset],
+input[type=button] {
+    background-color: black;
+    color: yellow;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 0.6rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    width: 30%;
+}
+
+input[value^="Visualizar"] {
+    display: block;
+    margin: auto;
+    margin-bottom: 0.6rem;
+    width: 75%;
+}
