@@ -22,7 +22,7 @@ function cadastro(){
         alert("Confirme sua senha");
         confirmPass.style.borderBottom = "2px solid red";
     }else if(email.value == ""){
-        alert("Digite seu email");
+        alert("Digite seu email");  
         email.style.borderBottom = "2px solid red";
     }else if (pass.value != confirmPass.value){
         alert("As senhas nao conferem, por favor verifique!");
