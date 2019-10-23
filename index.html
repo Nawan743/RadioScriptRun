@@ -38,8 +38,8 @@
         </form>
         <div id="login">
             <form action="#" method="POST" class="login">
-                <input type="text" name="username" id="username" placeholder="Player" onfocus="userIcon()" class="user">
-                <input type="password" name="password" id="password" placeholder="Senha" onfocus="passwordIcon()">
+                <input type="text" name="username" class="user" id="username" placeholder="Player" onfocus="userIcon('username')" onblur="escondeUserIcon('username')">
+                <input type="password" name="password" id="password" placeholder="Senha" onfocus="passwordIcon('password')" onblur="escondePasswordIcon('password')">
                 <input type="button" value="Entrar" onclick="validaLogin()">
                 <input type="reset" value="Limpar">
                 <input type="button" value="Visualizar Ranking 🏆">
@@ -47,11 +47,11 @@
         </div>
         <div id="cadastro" style="display: none;">
             <form action="#" method="POST" class="login">
-                <input type="text" name="username" id="usernameCadastro" placeholder="Player" class="user">
-                <input type="password" name="password" id="passwordCadastro" placeholder="Senha">
-                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Senha">
-                <input type="email" name="email" id="email" placeholder="Email">
-                <input type="button" value="Cadastrar" onclick="cadastro()">
+                <input type="text" name="username" id="usernameCadastro" placeholder="Player" class="user" onfocus="userIcon('usernameCadastro')" onblur="escondeUserIcon('usernameCadastro')">
+                <input type="password" name="password" id="passwordCadastro" placeholder="Senha" onfocus="passwordIcon('passwordCadastro')" onblur="escondePasswordIcon('passwordCadastro')">
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Senha" onfocus="passwordIcon('confirmPassword')" onblur="escondePasswordIcon('confirmPassword')">
+                <input type="email" name="email" id="email" placeholder="Email" onfocus="emailIcon()" onblur="escondeEmailIcon()">
+                <input type="button" value="Enviar" onclick="cadastro()">
                 <input type="reset" value="Limpar">
             </form>
         </div>
