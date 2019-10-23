@@ -13,7 +13,13 @@ main {
     width: 33%;
     font-size: 1.6rem;
 }
-
+body{
+    height: 100%;
+    margin: 0px;
+    background-image: url("../images/fundo-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 155%;
+}
 #giroflex {
     width: 18%;
 }
@@ -75,4 +81,17 @@ input[value^="Visualizar"] {
     margin: auto;
     margin-bottom: 0.6rem;
     width: 75%;
+}
+#username{
+    background-image:url(../images/user.png);
+    background-position:0px 50px;
+    background-size: 15%;
+    background-repeat: no-repeat;
+}
+
+#password{
+    background-image:url(../images/password.png);
+    background-position:0px 50px;
+    background-size: 15%;
+    background-repeat: no-repeat;
 }

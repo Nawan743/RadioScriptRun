@@ -38,20 +38,20 @@
         </form>
         <div id="login">
             <form action="#" method="POST" class="login">
-                <input type="text" name="username" id="username" placeholder="Player">
-                <input type="password" name="password" id="password" placeholder="Senha">
-                <input type="button" value="Entrar">
+                <input type="text" name="username" id="username" placeholder="Player" onfocus="userIcon()">
+                <input type="password" name="password" id="password" placeholder="Senha" onfocus="passwordIcon()">
+                <input type="button" value="Entrar" onclick="validaLogin()">
                 <input type="reset" value="Limpar">
                 <input type="button" value="Visualizar Ranking 🏆">
             </form>
         </div>
         <div id="cadastro" style="display: none;">
             <form action="#" method="POST" class="login">
-                <input type="text" name="username" id="username" placeholder="Player">
-                <input type="password" name="password" id="password" placeholder="Senha">
+                <input type="text" name="username" id="usernameCadastro" placeholder="Player">
+                <input type="password" name="password" id="passwordCadastro" placeholder="Senha">
                 <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Senha">
                 <input type="email" name="email" id="email" placeholder="Email">
-                <input type="button" value="Cadastrar">
+                <input type="button" value="Cadastrar" onclick="cadastro()">
                 <input type="reset" value="Limpar">
             </form>
         </div>
