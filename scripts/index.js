@@ -92,11 +92,11 @@ function escondePasswordIcon(id){
 }
 
 function emailIcon(){
-    document.getElementById().style.backgroundPosition = "right";
-    document.getElementById().style.transition = "all 0.3s";
+    document.getElementById('email').style.backgroundPosition = "right";
+    document.getElementById('email').style.transition = "all 0.3s";
 }
 
 function escondeEmailIcon(){
-    document.getElementById().style.backgroundPosition = "0px 50px";
-    document.getElementById().style.transition = "all 0.3s";
+    document.getElementById('email').style.backgroundPosition = "0px 50px";
+    document.getElementById('email').style.transition = "all 0.3s";
 }
