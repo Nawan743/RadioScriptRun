@@ -38,7 +38,7 @@
         </form>
         <div id="login">
             <form action="#" method="POST" class="login">
-                <input type="text" name="username" id="username" placeholder="Player" onfocus="userIcon()">
+                <input type="text" name="username" id="username" placeholder="Player" onfocus="userIcon()" class="user">
                 <input type="password" name="password" id="password" placeholder="Senha" onfocus="passwordIcon()">
                 <input type="button" value="Entrar" onclick="validaLogin()">
                 <input type="reset" value="Limpar">
@@ -47,7 +47,7 @@
         </div>
         <div id="cadastro" style="display: none;">
             <form action="#" method="POST" class="login">
-                <input type="text" name="username" id="usernameCadastro" placeholder="Player">
+                <input type="text" name="username" id="usernameCadastro" placeholder="Player" class="user">
                 <input type="password" name="password" id="passwordCadastro" placeholder="Senha">
                 <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Senha">
                 <input type="email" name="email" id="email" placeholder="Email">
