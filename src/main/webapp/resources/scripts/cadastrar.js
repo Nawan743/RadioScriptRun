@@ -39,17 +39,3 @@ function cadastro(){
     }
 
 }
-function verificaSenha(){
-    let pass = document.getElementById("password").value;
-    let cor = document.getElementById("password").style.borderBottom = "2px solid red";
-    pass.match(/\s/)?alert('Espaços em branco não são permitidos na senha'):
-      pass.match(/[a-z]/)?
-          pass.match(/[A-Z]/)?
-              pass.match(/\d/)?
-                  pass.match(/\W/)?
-                  cadastro()
-                  :alert('A senha necessita de ao menos um caracter especial')
-              :alert('A senha necessita de ao menos um numero')
-          :alert('A senha necessita de ao menos uma letra maiuscula')
-      :alert('A senha necessita de ao menos uma letra')    
- } 
