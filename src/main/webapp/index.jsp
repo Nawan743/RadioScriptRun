@@ -25,6 +25,9 @@
 </head>
 
 <body>
+	<%
+        String info = (String)(request.getAttribute("info"));
+	%>
     <audio autoplay loop src="./resources/audios/City-of-the-Disturbed_Looping.mp3" type="audio/mpeg"></audio>
     <audio autoplay loop src="./resources/audios/City-of-the-Disturbed_Looping.wav" type="audio/wav"></audio>
     <audio autoplay loop src="./resources/audios/City-of-the-Disturbed_Looping.ogg" type="audio/ogg"></audio>
@@ -45,6 +48,9 @@
             <form action="/radioscriptrun/login" method="POST" class="login">
                 <input type="text" name="username" class="user" id="username" placeholder="Player" onfocus="userIcon('username')" onblur="escondeUserIcon('username')">
                 <input type="password" name="password" id="password" placeholder="Senha" onfocus="passwordIcon('password')" onblur="escondePasswordIcon('password')">
+				<% if (info != null) { %>
+				<div class="info"><%=info%></div>
+				<% } %>
                 <input type="submit" value="Entrar" onclick="validaLogin()">
                 <input type="reset" value="Limpar">
                 <input type="button" value="Visualizar Ranking 🏆">
@@ -56,6 +62,9 @@
                 <input type="password" name="password" id="passwordCadastro" placeholder="Senha" onfocus="passwordIcon('passwordCadastro')" onblur="escondePasswordIcon('passwordCadastro')">
                 <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar Senha" onfocus="passwordIcon('confirmPassword')" onblur="escondePasswordIcon('confirmPassword')">
                 <input type="email" name="email" id="email" placeholder="Email" onfocus="emailIcon()" onblur="escondeEmailIcon()">
+                <% if (info != null) { %>
+                <div class="info"><%=info%></div>
+                <% } %>
                 <input type="submit" value="Enviar" onclick="cadastro()">
                 <input type="reset" value="Limpar">
             </form>
