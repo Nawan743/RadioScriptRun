@@ -22,4 +22,14 @@
   	<description></description>
   	<servlet-class>View.Jogo</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RankingServlet</servlet-name>
+  	<display-name>RankingServlet</display-name>
+  	<description></description>
+  	<servlet-class>Controller.RankingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RankingServlet</servlet-name>
+  	<url-pattern>/ranking</url-pattern>
+  </servlet-mapping>
 </web-app>
