@@ -29,7 +29,8 @@ public class CadastroServlet extends HttpServlet {
 		player.setRank(0);
 		
 		if (!player.getSenha().equals(confirmSenha)) {
-			req.setAttribute("info", "Senhas não coincidem!");
+			req.setAttribute("infoCadastro", "Senhas não coincidem!");
+			req.setAttribute("telaExibir", "cadastro");
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
 //			resp.sendRedirect("index.jsp");
@@ -38,10 +39,17 @@ public class CadastroServlet extends HttpServlet {
 			banco.criarBanco();
 
 			if (banco.PlayerExiste(player.getNome())) {
-				req.setAttribute("info", "Player informado já existe!");
+				req.setAttribute("infoCadastro", "Player informado já existe!");
+				req.setAttribute("telaExibir", "cadastro");
 			} else {
-				banco.registraPlayer(player);
-				req.setAttribute("info", "Player cadastrado com sucesso!");
+				if (player.getNome() == "" || player.getSenha() == "" || player.getEmail() == "") {
+					req.setAttribute("infoCadastro", "Por favor, preencha todos os campos!");
+					req.setAttribute("telaExibir", "cadastro");
+				} else {
+					banco.registraPlayer(player);
+					req.setAttribute("telaExibir", "login");
+					req.setAttribute("infoLogin", "Player cadastrado com sucesso!");					
+				}
 			}
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
@@ -51,6 +59,7 @@ public class CadastroServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+		req.setAttribute("telaExibir", "cadastro");
 		dispatcher.forward(req, resp);
 	}
 

@@ -16,4 +16,10 @@
   	<description></description>
   	<servlet-class>Controller.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Jogo</servlet-name>
+  	<display-name>Jogo</display-name>
+  	<description></description>
+  	<servlet-class>View.Jogo</servlet-class>
+  </servlet>
 </web-app>

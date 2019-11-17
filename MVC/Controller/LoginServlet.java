@@ -18,27 +18,30 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Banco banco = new Banco();
+		banco.criarBanco();
 		String player = req.getParameter("username");
 		String senha = req.getParameter("password");
 		RequestDispatcher dispatcher;
 		
 		if (!banco.PlayerExiste(player) || !banco.senhaValida(player, senha)) {			
 			if (!banco.PlayerExiste(player)) {
-				req.setAttribute("info", "Player informado não existe!");
+				req.setAttribute("infoLogin", "Player informado não existe!");
+				req.setAttribute("telaExibir", "login");
 			} else if (!banco.senhaValida(player, senha)) {
-				req.setAttribute("info", "Senha incorreta!");
+				req.setAttribute("infoLogin", "Senha incorreta!");
+				req.setAttribute("telaExibir", "login");
 			}
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
 		} else {
-			System.out.println(banco.qntPlayers());
-			dispatcher = req.getRequestDispatcher("/WEB-INF/jogo.jsp");
+			dispatcher = req.getRequestDispatcher("/jogo");
 			dispatcher.forward(req, resp);
 		}		
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+		req.setAttribute("telaExibir", "login");
 		dispatcher.forward(req, resp);
 	}
 
