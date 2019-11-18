@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%
 	String infoLogin = (String) (request.getAttribute("infoLogin"));
 	String infoCadastro = (String) (request.getAttribute("infoCadastro"));
@@ -36,15 +38,7 @@
 </head>
 
 <body>
-	<audio autoplay loop
-		src="./resources/audios/City-of-the-Disturbed_Looping.mp3"
-		type="audio/mpeg"></audio>
-	<audio autoplay loop
-		src="./resources/audios/City-of-the-Disturbed_Looping.wav"
-		type="audio/wav"></audio>
-	<audio autoplay loop
-		src="./resources/audios/City-of-the-Disturbed_Looping.ogg"
-		type="audio/ogg"></audio>
+	<c:import url="/WEB-INF/audio.jsp"></c:import>
 	<main>
 		<div class="giroflex">
 			<img src="./resources/images/sirene.gif" alt="Giroflex Gif"

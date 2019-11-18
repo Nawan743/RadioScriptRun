@@ -20,7 +20,7 @@ public class RankingServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.criarBanco();
 		String registros[] = banco.listaBanco().split("\n");
-		RequestDispatcher dispatcher = req.getRequestDispatcher("ranking.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/rank.jsp");
 		req.setAttribute("ranking", registros);
 		dispatcher.forward(req, resp);
 	}

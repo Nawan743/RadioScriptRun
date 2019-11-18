@@ -1,5 +1,4 @@
 /target/
-
 # Eclipse
 .classpath
 .project
@@ -14,10 +13,8 @@ tmp/
 local.properties
 .loadpath
 .recommenders
-
 # Eclipse Core
 .project
-
 # Maven
 log/
 target/
