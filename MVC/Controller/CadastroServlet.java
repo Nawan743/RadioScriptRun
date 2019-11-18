@@ -21,12 +21,11 @@ public class CadastroServlet extends HttpServlet {
 
 		RequestDispatcher dispatcher;
 
-		Player player = new Player();
-		player.setNome(req.getParameter("username"));
-		player.setSenha(req.getParameter("password"));
+		String nome = req.getParameter("username");
+		String senha = req.getParameter("password");
 		String confirmSenha = req.getParameter("confirmPassword");
-		player.setEmail(req.getParameter("email"));
-		player.setRank(0);
+		String email = req.getParameter("email");
+		Player player = new Player(nome, senha, email);
 		
 		if (!player.getSenha().equals(confirmSenha)) {
 			req.setAttribute("infoCadastro", "Senhas não coincidem!");
@@ -44,6 +43,9 @@ public class CadastroServlet extends HttpServlet {
 			} else {
 				if (player.getNome() == "" || player.getSenha() == "" || player.getEmail() == "") {
 					req.setAttribute("infoCadastro", "Por favor, preencha todos os campos!");
+					req.setAttribute("telaExibir", "cadastro");
+				} else if (player.getNome().equalsIgnoreCase(player.getSenha())) {
+					req.setAttribute("infoCadastro", "Sua senha não pode ser igual seu nome!");
 					req.setAttribute("telaExibir", "cadastro");
 				} else {
 					banco.registraPlayer(player);

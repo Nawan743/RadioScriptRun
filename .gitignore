@@ -1,1 +1,26 @@
 /target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+
+# Eclipse Core
+.project
+
+# Maven
+log/
+target/
+pom.properties
+
+*.class

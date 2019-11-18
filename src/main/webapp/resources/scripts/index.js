@@ -105,3 +105,7 @@ function escondeEmailIcon() {
 	document.getElementById('email').style.backgroundPosition = "0px 50px";
 	document.getElementById('email').style.transition = "all 0.3s";
 }
+
+function verRank() {
+	window.location.href = "/radioscriptrun/rank";
+}

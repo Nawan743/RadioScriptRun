@@ -77,7 +77,7 @@
 				%>
 				<input type="submit" value="Jogar">
 				<input type="reset" value="Limpar"> <input type="button"
-					value="Visualizar Ranking 🏆">
+					value="Visualizar Ranking 🏆" onclick="verRank()">
 			</form>
 		</div>
 		<div id="cadastro" style="display: none;">
