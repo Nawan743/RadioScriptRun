@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,18 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Models.Banco;
+import Models.Player;
 
 @WebServlet("/rank")
 public class RankingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		Banco banco = new Banco();
 		banco.criarBanco();
-		String registros[] = banco.listaBanco().split("\n");
+
+		ArrayList<Player> players = banco.listaBanco();
+
+		ArrayList<Player> top10 = QuickSort.ordenar(players, 0, players.size() - 1);
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/rank.jsp");
-		req.setAttribute("ranking", registros);
+		req.setAttribute("ranking", top10);
 		dispatcher.forward(req, resp);
 	}
 }
