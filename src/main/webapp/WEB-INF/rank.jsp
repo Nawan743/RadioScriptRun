@@ -1,5 +1,3 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="Models.Player"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -66,21 +64,10 @@ header {
 #trofeu {
 	color: yellow;
 }
-
-table {
-	width: 100%;
-}
-
-table td {
-	text-align: center;
-}
 </style>
 
 </head>
 <body>
-	<%
-		ArrayList<Player> ranking = (ArrayList<Player>) (request.getAttribute("ranking"));
-	%>
 	<audio autoplay loop
 		src="./resources/audios/City-of-the-Disturbed_Looping.mp3"
 		type="audio/mpeg"></audio>
@@ -102,10 +89,9 @@ table td {
 				<th>N°</th>
 				<th>Player</th>
 				<th>Pontos</th>
+				<th>Data / Hora</th>
 			</tr>
-			<%
-			/*
-			//<c:forEach items="" var="jogador">
+			<c:forEach items="" var="jogador">
 				<tr>
 					<td>${jogador.pos}</td>
 					<td>${jogador.nome}</td>
@@ -113,14 +99,6 @@ table td {
 					<td>${jogador.data}</td>
 				</tr>
 			</c:forEach>
-			*/
-			for (int i = 0; i < ranking.size(); i++) { %>
-				<tr>
-					<td><%=(i+1)%></td>
-					<td><%=ranking.get(i).getNome()%></td>
-					<td><%=ranking.get(i).getRank()%></td>
-				</tr>
-			<% } %>
 		</table>
 	</main>
 </body>
