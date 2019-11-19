@@ -25,8 +25,9 @@ public class CadastroServlet extends HttpServlet {
 		String senha = req.getParameter("password");
 		String confirmSenha = req.getParameter("confirmPassword");
 		String email = req.getParameter("email");
-
-		if (!senha.equals(confirmSenha)) {
+		Player player = new Player(nome, senha, email);
+		
+		if (!player.getSenha().equals(confirmSenha)) {
 			req.setAttribute("infoCadastro", "Senhas não coincidem!");
 			req.setAttribute("telaExibir", "cadastro");
 			dispatcher = req.getRequestDispatcher("index.jsp");
@@ -35,19 +36,18 @@ public class CadastroServlet extends HttpServlet {
 		} else {
 			Banco banco = new Banco();
 			banco.criarBanco();
-			
-			if (banco.PlayerExiste(nome)) {
+
+			if (banco.PlayerExiste(player.getNome())) {
 				req.setAttribute("infoCadastro", "Player informado já existe!");
 				req.setAttribute("telaExibir", "cadastro");
 			} else {
-				if (nome == "" || senha == "" || email == "") {
+				if (player.getNome() == "" || player.getSenha() == "" || player.getEmail() == "") {
 					req.setAttribute("infoCadastro", "Por favor, preencha todos os campos!");
 					req.setAttribute("telaExibir", "cadastro");
-				} else if (nome.equalsIgnoreCase(senha)) {
+				} else if (player.getNome().equalsIgnoreCase(player.getSenha())) {
 					req.setAttribute("infoCadastro", "Sua senha não pode ser igual seu nome!");
 					req.setAttribute("telaExibir", "cadastro");
 				} else {
-					Player player = new Player(nome, senha, email);
 					banco.registraPlayer(player);
 					req.setAttribute("telaExibir", "login");
 					req.setAttribute("infoLogin", "Player cadastrado com sucesso!");					
