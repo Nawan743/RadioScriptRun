@@ -10,9 +10,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 
+import com.google.gson.Gson;
+
 public class Banco {
 
 	private LineNumberReader lineCounter;
+	Gson gson = new Gson();
 
 	public void criarBanco() throws IOException {
 		File banco = new File("banco.txt");
@@ -22,25 +25,28 @@ public class Banco {
 	}
 
 	public void registraPlayer(Player p) throws IOException {
+		//String player = gson.toJson(p);
+		//File banco = new File("banco.json");
+
 		String player = p.getNome() + " ; " + p.getSenha() + " ; " + p.getEmail() + " ; " + p.getRank();
 		File banco = new File("banco.txt");
-//		System.out.println(banco.getAbsolutePath());
 		BufferedWriter writer = new BufferedWriter(new FileWriter(banco, true));
 		writer.append(player);
 		writer.newLine();
 		writer.close();
+		System.out.println("REGISTRADO: " + p.toString());
 	}
-
+	
 	public String listaBanco() throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader("banco.txt"));
 		String linha = "";
 		String banco = "";
-
+		
 		while (linha != null) {
 			banco += linha.concat("\n");
 			linha = reader.readLine();
 		}
-
+			
 		reader.close();
 		return banco;
 	}
