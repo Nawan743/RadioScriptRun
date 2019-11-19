@@ -107,5 +107,5 @@ function escondeEmailIcon() {
 }
 
 function verRank() {
-	window.location.href = "/radioscriptrun/rank";
+	window.location.href = "rank";
 }

@@ -55,7 +55,7 @@
 				onclick="trocarDivs()">
 		</form>
 		<div id="login">
-			<form action="/radioscriptrun/login" method="POST" class="login">
+			<form action="login" method="POST" class="login">
 				<input type="text" name="username" class="user" id="username"
 					placeholder="Player" onfocus="userIcon('username')"
 					onblur="escondeUserIcon('username')"> <input
@@ -75,7 +75,7 @@
 			</form>
 		</div>
 		<div id="cadastro" style="display: none;">
-			<form action="/radioscriptrun/cadastrar" method="POST" class="login">
+			<form action="cadastrar" method="POST" class="login">
 				<input type="text" name="username" id="usernameCadastro"
 					placeholder="Player" class="user"
 					onfocus="userIcon('usernameCadastro')"
