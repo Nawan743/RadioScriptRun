@@ -5,20 +5,20 @@ public class Player {
 	private final String nome;
 	private final String senha;
 	private final String email;
-	private Integer pontuacao;
+	private Integer score;
 	
 	public Player(String nome, String senha, String email) {
 		this.nome = nome;
 		this.senha = senha;
 		this.email = email;
-		this.pontuacao = 0;
+		this.score = 0;
 	}
 	
 	public Player(String nome, String senha, String email, int pontuacao) {
 		this.nome = nome;
 		this.senha = senha;
 		this.email = email;
-		this.pontuacao = pontuacao;
+		this.score = pontuacao;
 	}
 	
 //	Apenas para testar o banco de dados no Heroku
@@ -26,7 +26,7 @@ public class Player {
 		this.nome = nome;
 		this.senha = "test";
 		this.email = "test@gmail.com";
-		this.pontuacao = score;
+		this.score = score;
 	}
 	
 	public String getNome() {
@@ -39,14 +39,14 @@ public class Player {
 		return email;
 	}
 	public Integer getRank() {
-		return pontuacao;
+		return score;
 	}
 	public void setRank(Integer pontuacao) {
-		this.pontuacao = pontuacao;
+		this.score = pontuacao;
 	}
 	
 	@Override
 	public String toString() {
-		return "Player [Apelido: " + getNome() + ", Email: " + getEmail() + ", Score: " + pontuacao + "]";
+		return "Player [Apelido: " + getNome() + ", Email: " + getEmail() + ", Score: " + score + "]";
 	}
 }
