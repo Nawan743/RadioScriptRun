@@ -26,7 +26,8 @@
 	rel="stylesheet">
 
 <!-- CSS -->
-<link rel="stylesheet" href="./resources/estilo/rank.css" type="text/css">
+<link rel="stylesheet" href="./resources/estilo/rank.css"
+	type="text/css">
 
 </head>
 <body>
@@ -39,26 +40,31 @@
 			</h1>
 		</header>
 		<table>
+			<%
+				if (ranking.size() == 0) {
+			%>
+			<tr>
+				<td colspan="3">Nenhum player cadastrado</td>
+			</tr>
+			<%
+				} else {
+			%>
 			<tr>
 				<th>N°</th>
 				<th>Player</th>
 				<th>Pontos</th>
 			</tr>
 			<%
-				if (ranking.size() == 0) { %>
-					<tr><td colspan="3">Nenhum player cadastrado</td></tr>
-					<%
-				} else {
-					int paradaRanking = (ranking.size() < 10) ? ranking.size() : 10;
+				int paradaRanking = (ranking.size() < 10) ? ranking.size() : 10;
 					for (int i = 0; i < paradaRanking; i++) {
-						%>
-						<tr>
-							<td><%=(i + 1)%></td>
-							<td><%=ranking.get(i).getNome()%></td>
-							<td><%=ranking.get(i).getRank()%></td>
-						</tr>
-						<%
-					}
+			%>
+			<tr>
+				<td><%=(i + 1)%></td>
+				<td><%=ranking.get(i).getNome()%></td>
+				<td><%=ranking.get(i).getRank()%></td>
+			</tr>
+			<%
+				}
 				}
 			%>
 		</table>
