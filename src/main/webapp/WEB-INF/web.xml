@@ -28,4 +28,10 @@
   	<description></description>
   	<servlet-class>Controller.RankingServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GerarBancoServlet</servlet-name>
+  	<display-name>GerarBancoServlet</display-name>
+  	<description></description>
+  	<servlet-class>Controller.GerarBancoServlet</servlet-class>
+  </servlet>
 </web-app>

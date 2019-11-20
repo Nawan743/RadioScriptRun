@@ -1,0 +1,55 @@
+* {
+	margin: 0px;
+	box-sizing: content-box;
+	font-family: 'Acme', sans-serif;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
+	/* box-shadow: -1px 1px 5px 3px black; */
+	background-image: url("./resources/images/fundo-desktop.jpg");
+	background-repeat: no-repeat;
+	background-size: 101% 101%;
+}
+
+main {
+	text-align: center;
+	background-color: yellow;
+	border-radius: 13px;
+	border: 15px solid black;
+	box-shadow: -1px 1px 10px 3px lightgray; //
+	width: 33%;
+	font-size: 1.6rem;
+}
+
+table {
+	margin: auto;
+}
+
+h1 {
+	margin: 0px 30px;
+}
+
+header {
+	background-color: black;
+	color: white;
+}
+
+#trofeu {
+	color: yellow;
+}
+
+table {
+	width: 100%;
+}
+
+table td {
+	text-align: center;
+}

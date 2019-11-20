@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -24,9 +26,7 @@
 </head>
 
 <body>
-    <audio autoplay loop src="./resources/audios/City-of-the-Disturbed_Looping.mp3" type="audio/mpeg"></audio>
-    <audio autoplay loop src="./resources/audios/City-of-the-Disturbed_Looping.wav" type="audio/wav"></audio>
-    <audio autoplay loop src="./resources/audios/City-of-the-Disturbed_Looping.ogg" type="audio/ogg"></audio>
+    <c:import url="audio.jsp"></c:import>
     <main>
         <header>
             <h1>Bem-vindo, ${jogador.nome}!</h1>
@@ -39,7 +39,6 @@
                 <input type="button" value="🏆" onclick="verRank()">
             </abbr>
         </form>
-
     </main>
 </body>
 

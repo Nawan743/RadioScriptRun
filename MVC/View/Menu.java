@@ -16,8 +16,14 @@ public class Menu extends HttpServlet {
 	RequestDispatcher dispatcher;
 	
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		dispatcher = req.getRequestDispatcher("/WEB-INF/menu.jsp");
+		dispatcher.forward(req, resp);
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		dispatcher = req.getRequestDispatcher("/login");
 		dispatcher.forward(req, resp);
 	}
 }

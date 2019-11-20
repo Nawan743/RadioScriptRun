@@ -1,8 +1,6 @@
-package Controller;
+package Models;
 
 import java.util.ArrayList;
-
-import Models.Player;
 
 public class QuickSort {
 

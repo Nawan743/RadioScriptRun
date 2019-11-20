@@ -24,14 +24,13 @@ public class CadastroServlet extends HttpServlet {
 		String nome = req.getParameter("username");
 		String senha = req.getParameter("password");
 		String confirmSenha = req.getParameter("confirmPassword");
-		String email = req.getParameter("email");	
+		String email = req.getParameter("email");
 		
-		if (senha.equals(confirmSenha)) {
+		if (!senha.equals(confirmSenha)) {
 			req.setAttribute("infoCadastro", "Senhas não coincidem!");
 			req.setAttribute("telaExibir", "cadastro");
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
-//			resp.sendRedirect("index.jsp");
 		} else {
 			Banco banco = new Banco();
 			banco.criarBanco();
