@@ -19,7 +19,6 @@ public class Banco {
 		if (!banco.exists()) {
 			banco.createNewFile();
 		}
-		System.out.println(banco.getAbsolutePath());
 	}
 
 	public void registraPlayer(Player p) throws IOException {

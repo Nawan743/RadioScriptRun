@@ -14,7 +14,7 @@ body {
 	height: 100%;
 	align-items: center;
 	/* box-shadow: -1px 1px 5px 3px black; */
-	background-image: url("./resources/images/fundo-desktop.jpg");
+	background-image: url("../images/fundo-desktop.jpg");
 	background-repeat: no-repeat;
 	background-size: 101% 101%;
 }
