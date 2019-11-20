@@ -46,24 +46,20 @@
 				<th>Pontos</th>
 			</tr>
 			<%
-				/*
-				//<c:forEach items="" var="jogador">
-					<tr>
-						<td>${jogador.pos}</td>
-						<td>${jogador.nome}</td>
-						<td>${jogador.pontos}</td>
-						<td>${jogador.data}</td>
-					</tr>
-				</c:forEach>
-				*/
-				for (int i = 0; i < ranking.size(); i++) {
-			%>
-			<tr>
-				<td><%=(i + 1)%></td>
-				<td><%=ranking.get(i).getNome()%></td>
-				<td><%=ranking.get(i).getRank()%></td>
-			</tr>
-			<%
+				if (ranking.size() == 0) { %>
+					<tr><td colspan="3">Nenhum player cadastrado</td></tr>
+					<%
+				} else {
+					int paradaRanking = (ranking.size() < 10) ? ranking.size() : 10;
+					for (int i = 0; i < paradaRanking; i++) {
+						%>
+						<tr>
+							<td><%=(i + 1)%></td>
+							<td><%=ranking.get(i).getNome()%></td>
+							<td><%=ranking.get(i).getRank()%></td>
+						</tr>
+						<%
+					}
 				}
 			%>
 		</table>
