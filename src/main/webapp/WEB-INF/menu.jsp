@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ page import="Models.Player" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -26,10 +29,11 @@
 </head>
 
 <body>
+	<% String jogador = (String) request.getAttribute("Player"); %>
     <c:import url="audio.jsp"></c:import>
     <main>
         <header>
-            <h1>Bem-vindo, ${jogador.nome}!</h1>
+            <h1>Bem-vindo, <%=jogador %>!</h1>
         </header>
         <form id="jogo" action="jogo" method="POST">
             <abbr title="Jogar">

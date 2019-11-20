@@ -40,4 +40,14 @@
   	<description></description>
   	<servlet-class>Controller.JogoServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LimpaBancoServlet</servlet-name>
+  	<display-name>LimpaBancoServlet</display-name>
+  	<description></description>
+  	<servlet-class>Controller.LimpaBancoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LimpaBancoServlet</servlet-name>
+  	<url-pattern>/limpa-banco</url-pattern>
+  </servlet-mapping>
 </web-app>

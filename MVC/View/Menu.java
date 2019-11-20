@@ -18,6 +18,8 @@ public class Menu extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		dispatcher = req.getRequestDispatcher("/WEB-INF/menu.jsp");
+		String player = (String) req.getAttribute("Player");
+		req.setAttribute("Player", player);
 		dispatcher.forward(req, resp);
 	}
 

@@ -22,7 +22,6 @@ public class Banco {
 	}
 
 	public void registraPlayer(Player p) throws IOException {
-
 		String player = p.getNome() + " ; " + p.getSenha() + " ; " + p.getEmail() + " ; " + p.getRank();
 		File banco = new File("banco.txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(banco, true));

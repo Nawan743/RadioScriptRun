@@ -35,6 +35,7 @@ public class LoginServlet extends HttpServlet {
 			dispatcher.forward(req, resp);
 		} else {
 			dispatcher = req.getRequestDispatcher("/menu");
+			req.setAttribute("Player", player);
 			dispatcher.forward(req, resp);
 		}		
 	}
