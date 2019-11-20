@@ -31,7 +31,7 @@
         <header>
             <h1>Bem-vindo, ${jogador.nome}!</h1>
         </header>
-        <form id="jogo" action="login" method="POST">
+        <form id="jogo" action="jogo" method="POST">
             <abbr title="Jogar">
                 <input type="submit" value="▶️">
             </abbr>
