@@ -9,8 +9,9 @@
 <meta charset="UTF-8">
 <title>RadioScript Run</title>
 </head>
-<body>
-	<c:import url="audio.jsp"></c:import>
-	<p>Jogo em construção!</p>
+<body onload="main(0)" onkeypress="movimentarBoneco()">
+    <div id="caixaBlocos">
+        <div class="boxBoneco" id="idBoneco"></div>
+    </div>
 </body>
 </html>
