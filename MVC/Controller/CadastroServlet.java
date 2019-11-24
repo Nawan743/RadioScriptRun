@@ -35,7 +35,7 @@ public class CadastroServlet extends HttpServlet {
 			Banco banco = new Banco();
 			banco.criarBanco();
 
-			if (banco.PlayerExiste(nome)) {
+			if (banco.playerExiste(nome)) {
 				req.setAttribute("infoCadastro", "Player informado já existe!");
 				req.setAttribute("telaExibir", "cadastro");
 			} else {

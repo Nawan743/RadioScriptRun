@@ -48,7 +48,7 @@ public class Banco {
 		return players;
 	}
 
-	public boolean PlayerExiste(String playerValidar) throws IOException {
+	public boolean playerExiste(String playerValidar) throws IOException {
 		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
 		String linha = null;
 		while ((linha = lineCounter.readLine()) != null) {

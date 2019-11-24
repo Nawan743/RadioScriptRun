@@ -23,8 +23,8 @@ public class LoginServlet extends HttpServlet {
 		String senha = req.getParameter("password");
 		RequestDispatcher dispatcher;
 		
-		if (!banco.PlayerExiste(player) || !banco.senhaValida(player, senha)) {			
-			if (!banco.PlayerExiste(player)) {
+		if (!banco.playerExiste(player) || !banco.senhaValida(player, senha)) {			
+			if (!banco.playerExiste(player)) {
 				req.setAttribute("infoLogin", "Player informado não existe!");
 				req.setAttribute("telaExibir", "login");
 			} else if (!banco.senhaValida(player, senha)) {
