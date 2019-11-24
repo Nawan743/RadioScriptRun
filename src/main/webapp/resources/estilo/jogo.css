@@ -4,13 +4,13 @@ body {
 }
 #caixaBlocos {
     height: 200px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     width:100%;
     background-color: white;
 }
 .boxBoneco {
     height: 200px;
-    background-image: url("/img/parado.gif");
+    background-image: url("/resources/images/parado.gif");
     background-repeat: no-repeat;
     width: 150px;
     position: relative;

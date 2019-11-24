@@ -16,7 +16,7 @@
 <title>Ranking 🏆 - RadioScript Run</title>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/x-icon"
-	href="./images/4305icon.ico">
+	href="./resources/images/4305icon.ico">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Acme&display=swap"
