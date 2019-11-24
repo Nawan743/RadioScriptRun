@@ -26,6 +26,7 @@ function movimentarBoneco(){
     // setTimeout(pulo, 200);
     // }
 }
+
 function pulo(){
     up = true;
     document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/pulando.png')";
