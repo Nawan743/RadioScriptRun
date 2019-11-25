@@ -6,11 +6,11 @@
 }
 .boxBoneco {
     height: 200px;
-    background-image: url("/resources/images/parado.gif");
+    background-image: url("../images/parado.gif");
     background-repeat: no-repeat;
     width: 150px;
     position: relative;
-    top:40%;
+    top:42%;
     left: 100px;
     float:left;
     z-index: 100;

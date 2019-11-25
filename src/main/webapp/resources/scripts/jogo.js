@@ -11,10 +11,11 @@ function comecar() {
 
 function movimentarBoneco(){
    var up = false;
-   console.log(event.keyCode)
+   console.log(event);
+   //console.log(event.keyCode)
    document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/correndo.gif')";
     if(event.keyCode == 83 || event.keyCode == 40){
-        console.log('AGAIXADO')
+        //console.log('AGAIXADO')
         document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/agaixado.gif')";
     }
     if(event.keyCode == 87 || event.keyCode == 38 || event.keyCode == 32){
@@ -85,7 +86,7 @@ function criarNovoBloco(indiceBloco) {
     novoBloco = document.createElement("div");
     novoBloco.setAttribute("id",idNovoBloco);
     novoBloco.setAttribute("class","novoBloco");
-    cssNovoBloco = `left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[indice].src}); background-size: 100%;`;
+    cssNovoBloco = `left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[sortearNro(0,1)].src}); background-size: 100%;`;
     novoBloco.setAttribute("style",cssNovoBloco);
     document.getElementById("caixaBlocos").appendChild(novoBloco);
     
