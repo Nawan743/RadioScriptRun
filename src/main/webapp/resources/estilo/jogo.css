@@ -5,10 +5,11 @@
     background-color: white;
 }
 .boxBoneco {
-    height: 200px;
+    height: 100px;
     background-image: url("../images/parado.gif");
+    background-position: center;
     background-repeat: no-repeat;
-    width: 150px;
+    width: 100px;
     position: relative;
     top:42%;
     left: 100px;
