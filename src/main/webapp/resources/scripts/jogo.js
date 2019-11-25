@@ -1,4 +1,4 @@
-var g_obstaculos = [{src:"passaro.png",status:"up"},{src:"barril.png", status:"down"}];
+var g_obstaculos = [{src:"passaro.png"},{src:"barril.png"}];
 var g_cronometros = [1,2,3,4,5,6,7,8,9,10];
 
 var primeiraTecla = true;
@@ -85,7 +85,7 @@ function criarNovoBloco(indiceBloco) {
     novoBloco = document.createElement("div");
     novoBloco.setAttribute("id",idNovoBloco);
     novoBloco.setAttribute("class","novoBloco");
-    cssNovoBloco = `left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(/resources/images/${g_obstaculos[sortearNro(0,1)].src}); background-size: 100%`;
+    cssNovoBloco = `left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[indice].src}); background-size: 100%;`;
     novoBloco.setAttribute("style",cssNovoBloco);
     document.getElementById("caixaBlocos").appendChild(novoBloco);
     
@@ -108,11 +108,63 @@ function movimentarBloco(idBloco,indiceBloco) {
     bloco = window.getComputedStyle(document.getElementById(idBloco));
     posicaoBloco = (parseInt(bloco.left)-1);
     document.getElementById(idBloco).style.left = posicaoBloco+"px";
+    // Testa detecção de colisão no if
+    if(detectarColisao("idBoneco", idBloco)){
+    	alert("Você perdeu!");
+    	window.open("http://localhost:8080/radioscriptrun/rank", "_self");
+    }
     // Bloco tocou a margem esquerda da caixa de blocos. Portanto, para o
 	// cronometro dele e remove-o da interface
-    if (posicaoBloco < 0) {
+    if (posicaoBloco < 0) { 
         clearInterval(g_cronometros[indiceBloco]);
         var item = document.getElementById(idBloco);
         item.parentNode.removeChild(item);
     }
+}
+
+function detectarColisao(objeto1, objeto2) {
+	var colidiu = false;
+	let obj1 = document.getElementById(objeto1).getBoundingClientRect();
+	let obj2 = document.getElementById(objeto2).getBoundingClientRect();
+
+	let pontos_obj1 = [ {
+		x : obj1.left,
+		y : obj1.top
+	}, {
+		x : obj1.left + obj1.width,
+		y : obj1.top
+	}, {
+		x : obj1.left + obj1.width,
+		y : obj1.top + obj1.height
+	}, {
+		x : obj1.left,
+		y : obj1.top + obj1.height
+	} ];
+	let pontos_obj2 = [ {
+		x : obj2.left,
+		y : obj2.top
+	}, {
+		x : obj2.left + obj2.width,
+		y : obj2.top
+	}, {
+		x : obj2.left + obj2.width,
+		y : obj2.top + obj2.height
+	}, {
+		x : obj2.left,
+		y : obj2.top + obj2.height
+	} ];
+
+	let indice = 0;
+
+	while (colidiu == false && indice <= 3)
+				(pontos_obj1[indice].x >= obj2.left
+				&& pontos_obj1[indice].x <= obj2.left + obj2.width
+				&& pontos_obj1[indice].y >= obj2.top
+				&& pontos_obj1[indice].y <= obj2.top + obj2.height ||
+				pontos_obj2[indice].x >= obj1.left
+				&& pontos_obj2[indice].x <= obj1.left + obj1.width
+				&& pontos_obj2[indice].y >= obj1.top
+				&& pontos_obj2[indice].y <= obj1.top + obj1.height) ? 
+				colidiu = true : indice++;
+	return colidiu;
 }
