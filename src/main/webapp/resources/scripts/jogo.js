@@ -18,7 +18,7 @@ function turnedDown() {
 function jumped() {
     document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/pulando.png')";
     document.getElementById('idBoneco').style.marginTop = "50px";
-    setTimeout(running, 700);
+    setTimeout(running, 900);
 }
 
 
@@ -27,7 +27,7 @@ function jumped() {
 // --------------- Controta os obstáculos ---------------------------
 const g_obstaculos = [
 	{src: 'passaro.png', position: 'top'},
-	{src: 'passaro.png', position: 'middle'},
+	//{src: 'passaro.png', position: 'middle'},
 	{src: 'barril.png', position: 'down'}
 ];
 const g_cronometros = [1,2,3,4,5,6,7,8,9,10];
@@ -77,7 +77,7 @@ function criarNovoBloco(indiceBloco) {
     novoBloco = document.createElement("div");
     novoBloco.setAttribute("id",idNovoBloco);
     novoBloco.setAttribute("class","novoBloco");
-    const numSort = sortearNro(0,2);
+    const numSort = sortearNro(0,1);
     if (g_obstaculos[numSort].position == 'top') {
     	cssNovoBloco = `margin-top: 70px; left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[numSort].src}); background-size: 100%;`;
     } else if (g_obstaculos[numSort].position == 'middle') {
@@ -107,10 +107,13 @@ function movimentarBloco(idBloco,indiceBloco) {
     bloco = window.getComputedStyle(document.getElementById(idBloco));
     posicaoBloco = (parseInt(bloco.left)-1);
     document.getElementById(idBloco).style.left = posicaoBloco+"px";
+    let url = window.location.href;
+    let pasta = window.location.pathname;
     // Testa detecção de colisão no if
     if(detectarColisao("idBoneco", idBloco)){
+    	clearInterval(g_cronometros[indiceBloco]);
     	alert("Você perdeu!");
-    	window.open("http://localhost:8080/radioscriptrun/rank", "_self");
+    	window.open(url.replace(pasta, "")+"/rank","_self");
     }
     // Bloco tocou a margem esquerda da caixa de blocos. Portanto, para o
 	// cronometro dele e remove-o da interface
@@ -122,8 +125,8 @@ function movimentarBloco(idBloco,indiceBloco) {
 }
 
 function detectarColisao(objeto1, objeto2) {
-	return false;
-	var colidiu = false;
+	//return false;
+	let colidiu = false;
 	let obj1 = document.getElementById(objeto1).getBoundingClientRect();
 	let obj2 = document.getElementById(objeto2).getBoundingClientRect();
 
@@ -178,7 +181,7 @@ function keyDown(event) {
 		if (jumpOn === false) {
 			jumpOn = true;
 			runOn = false;
-			setTimeout(jumped, 100);
+			setTimeout(jumped, 200);
 		}
 	}
 
