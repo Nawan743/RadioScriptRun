@@ -1,23 +1,32 @@
 #caixaBlocos {
-    height: 200px;
-    /*border: 1px solid black;*/
     width:100%;
+    height: 350px;
     background-color: white;
+    /*border: 1px solid black;*/
 }
 .boxBoneco {
+    /*
     height: 100px;
+    position: relative;
+    top:42%;
+    border: 1px solid black;
+    */
+    float:left;
     background-image: url("../images/parado.gif");
     background-position: center;
     background-repeat: no-repeat;
-    width: 100px;
-    position: relative;
-    top:42%;
-    left: 100px;
-    float:left;
+    width: 90px;
+    height: 100px;
     z-index: 100;
+    margin-top: 230px;
+    margin-left: 80px;
 
 }
+
 .novoBloco {
     position:absolute;
     display: inline-block;
+    /*
+    border: 1px solid black;
+    */
 }

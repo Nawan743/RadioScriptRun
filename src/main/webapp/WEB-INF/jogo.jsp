@@ -23,7 +23,7 @@
     <!-- JavaScript -->
     <script src="./resources/scripts/jogo.js"></script>
 </head>
-<body onkeydown="movimentarBoneco(), comecar()">
+<body>
     <c:import url="audio.jsp"></c:import>
     <div id="caixaBlocos">
         <div class="boxBoneco" id="idBoneco"></div>

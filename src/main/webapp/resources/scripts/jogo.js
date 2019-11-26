@@ -1,55 +1,36 @@
-var g_obstaculos = [{src:"passaro.png"},{src:"barril.png"}];
-var g_cronometros = [1,2,3,4,5,6,7,8,9,10];
+// ---------------- Movimento do personagem -------------------------
+let primeiraTecla = true;
+let runOn = true;
+let jumpOn = false;
 
-var primeiraTecla = true;
-function comecar() {
-    if (primeiraTecla) {
-        main();
-    }
-    primeiraTecla = false;
+function running() {
+	runOn = true;
+    jumpOn = false;
+	document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/correndo.gif')";
+    document.getElementById('idBoneco').style.marginTop = "230px";
 }
 
-function movimentarBoneco(){
-   var up = false;
-   console.log(event);
-   //console.log(event.keyCode)
-   document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/correndo.gif')";
-    if(event.keyCode == 83 || event.keyCode == 40){
-        //console.log('AGAIXADO')
-        document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/agaixado.gif')";
-    }
-    if(event.keyCode == 87 || event.keyCode == 38 || event.keyCode == 32){
-        setTimeout(pulo, 200);
-        document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/pulando.png')";
-    }
-   
-    // if(event.keyCode == 87 || event.keyCode == 32 || event.keyCode == 38){
-    // setTimeout(pulo, 200);
-    // }
+function turnedDown() {
+	document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/agaixado.gif')";
+    document.getElementById('idBoneco').style.marginTop = "230px";
 }
 
-function pulo(){
-    up = true;
+function jumped() {
     document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/pulando.png')";
-    document.getElementById('idBoneco').style.top = "0%";
-    setTimeout(correr, 300);
+    document.getElementById('idBoneco').style.marginTop = "50px";
+    setTimeout(running, 700);
 }
 
-function correr(){
-    up = false;
-    document.getElementById('idBoneco').style.top = "40%";
-    document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/correndo.gif')";
-}
 
-// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Sortear um numero aleatorio no intervalo [a,b]
-// Parâmetros: a: limite inferior do intervalo e b: limite superior do intervalo
-// Retorno: número aleatório sorteado
-// Exemplo de chamada da função: sortear(5,45) -> 30
-// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-function sortearNro(a,b) {
-    return Math.round(Math.random()*(b-a))+a;
-}
+
+
+// --------------- Controta os obstáculos ---------------------------
+const g_obstaculos = [
+	{src: 'passaro.png', position: 'top'},
+	{src: 'passaro.png', position: 'middle'},
+	{src: 'barril.png', position: 'down'}
+];
+const g_cronometros = [1,2,3,4,5,6,7,8,9,10];
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Orquestra as outras funcoes do jogo: cria um novo bloco a cada intervalo
@@ -64,6 +45,16 @@ function main(indiceBloco = 0) {
     setTimeout(main,sortearNro(1,4)*1000,(indiceBloco>9)?0:indiceBloco+1);
 }
 
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Sortear um numero aleatorio no intervalo [a,b]
+//Parâmetros: a: limite inferior do intervalo e b: limite superior do intervalo
+//Retorno: número aleatório sorteado
+//Exemplo de chamada da função: sortear(5,45) -> 30
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+function sortearNro(a,b) {
+ return Math.round(Math.random()*(b-a))+a;
+}
+
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Cria um novo bloco dinamicamente e adiciona-o na interface (nro max. de
 // blocos por tela: 10)
@@ -72,9 +63,9 @@ function main(indiceBloco = 0) {
 // Retorno: nenhum
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 function criarNovoBloco(indiceBloco) {
-    var idNovoBloco, cssNovoBloco, novoBloco, leftNovoBloco, caixaBlocos, larguracaixaBlocos, novoParagrafo;
-    var larguraBloco = 70;
-    var alturaBloco = 60;
+    let idNovoBloco, cssNovoBloco, novoBloco, leftNovoBloco, caixaBlocos, larguracaixaBlocos, novoParagrafo;
+    let larguraBloco = 60;
+    let alturaBloco = 60;
 
     // Acessa a caixa de blocos onde os blocos irão movimentar
     caixaBlocos = window.getComputedStyle(document.getElementById("caixaBlocos"));
@@ -86,7 +77,14 @@ function criarNovoBloco(indiceBloco) {
     novoBloco = document.createElement("div");
     novoBloco.setAttribute("id",idNovoBloco);
     novoBloco.setAttribute("class","novoBloco");
-    cssNovoBloco = `left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[sortearNro(0,1)].src}); background-size: 100%;`;
+    const numSort = sortearNro(0,2);
+    if (g_obstaculos[numSort].position == 'top') {
+    	cssNovoBloco = `margin-top: 70px; left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[numSort].src}); background-size: 100%;`;
+    } else if (g_obstaculos[numSort].position == 'middle') {
+    	cssNovoBloco = `margin-top: 170px; left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[numSort].src}); background-size: 100%;`;
+    } else {
+    	cssNovoBloco = `margin-top: 270px; left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[numSort].src}); background-size: 100%;`;    	
+    }
     novoBloco.setAttribute("style",cssNovoBloco);
     document.getElementById("caixaBlocos").appendChild(novoBloco);
     
@@ -124,6 +122,7 @@ function movimentarBloco(idBloco,indiceBloco) {
 }
 
 function detectarColisao(objeto1, objeto2) {
+	return false;
 	var colidiu = false;
 	let obj1 = document.getElementById(objeto1).getBoundingClientRect();
 	let obj2 = document.getElementById(objeto2).getBoundingClientRect();
@@ -169,3 +168,43 @@ function detectarColisao(objeto1, objeto2) {
 				colidiu = true : indice++;
 	return colidiu;
 }
+
+// ESCUTA O TECLADO
+function keyDown(event) {
+
+	const keyPressed = event.key
+
+	if ((keyPressed === 'ArrowUp' || keyPressed === 'w' || keyPressed === 'W' || keyPressed === ' ') && primeiraTecla === false) {
+		if (jumpOn === false) {
+			jumpOn = true;
+			runOn = false;
+			setTimeout(jumped, 100);
+		}
+	}
+
+	if ((keyPressed === 'ArrowDown' || keyPressed === 's' || keyPressed === 'S') && primeiraTecla === false) {
+		jumpOn = false;
+		runOn = false;
+		turnedDown();
+	}
+	
+	if (primeiraTecla) {
+		main();
+		primeiraTecla = false;
+		jumpOn = false;
+		runOn = true;
+		running();
+	}
+}
+
+function keyUp(event) {
+	
+	const keyPressed = event.key
+	
+	if (keyPressed === 'ArrowDown' || keyPressed === 's' || keyPressed === 'S') {
+		setTimeout(running, 200);
+	}
+}
+
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
