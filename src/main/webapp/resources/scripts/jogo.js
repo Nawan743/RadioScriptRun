@@ -26,9 +26,9 @@ function jumped() {
 
 // --------------- Controta os obstáculos ---------------------------
 const g_obstaculos = [
-	{src: 'passaro.png', position: 'top'},
+	{src: 'passaro.webp', position: 'top'},
 	//{src: 'passaro.png', position: 'middle'},
-	{src: 'barril.png', position: 'down'}
+	{src: 'monstro.gif', position: 'down'}
 ];
 const g_cronometros = [1,2,3,4,5,6,7,8,9,10];
 
