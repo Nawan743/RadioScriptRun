@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./resources/estilo/jogo.css" type="text/css">
     <link rel="stylesheet" href="./resources/estilo/menu.css" type="text/css">
+    <link rel="stylesheet" href="./resources/estilo/jogo.css" type="text/css">
 
     <!-- JavaScript -->
     <script src="./resources/scripts/jogo.js"></script>
