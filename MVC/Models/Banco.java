@@ -11,11 +11,13 @@ import java.io.LineNumberReader;
 import java.util.ArrayList;
 
 public class Banco {
+	
+	private String pathBanco = "banco.txt";
 
 	private LineNumberReader lineCounter;
 
 	public void criarBanco() throws IOException {
-		File banco = new File("banco.txt");
+		File banco = new File(pathBanco);
 		if (!banco.exists()) {
 			banco.createNewFile();
 		}
@@ -23,7 +25,7 @@ public class Banco {
 
 	public void registraPlayer(Player p) throws IOException {
 		String player = p.getNome() + " ; " + p.getSenha() + " ; " + p.getEmail() + " ; " + p.getRank();
-		File banco = new File("banco.txt");
+		File banco = new File(pathBanco);
 		BufferedWriter writer = new BufferedWriter(new FileWriter(banco, true));
 		writer.append(player);
 		writer.newLine();
@@ -32,7 +34,7 @@ public class Banco {
 	}
 
 	public ArrayList<Player> listaBanco() throws IOException {
-		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
+		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream(pathBanco)));
 		String nextLine = null;
 
 		ArrayList<Player> players = new ArrayList<Player>();
@@ -49,7 +51,7 @@ public class Banco {
 	}
 
 	public boolean playerExiste(String playerValidar) throws IOException {
-		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
+		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream(pathBanco)));
 		String linha = null;
 		while ((linha = lineCounter.readLine()) != null) {
 			String player[] = linha.split(" ; ");
@@ -61,7 +63,7 @@ public class Banco {
 	}
 
 	public boolean senhaValida(String playerValidar, String senhaValidar) throws IOException {
-		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
+		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream(pathBanco)));
 		String linha = null;
 		while ((linha = lineCounter.readLine()) != null) {
 			String player[] = linha.split(" ; ");
@@ -73,7 +75,7 @@ public class Banco {
 	}
 
 	public int qntPlayers() throws IOException {
-		File banco = new File("banco.txt");
+		File banco = new File(pathBanco);
 		lineCounter = new LineNumberReader(new FileReader(banco));
 		lineCounter.skip(banco.length());
 		return lineCounter.getLineNumber();
