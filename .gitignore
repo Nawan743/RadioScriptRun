@@ -10,7 +10,6 @@ tmp/
 *.bak
 *.swp
 *~.nib
-local.properties
 .loadpath
 .recommenders
 # Eclipse Core
@@ -18,8 +17,7 @@ local.properties
 # Maven
 log/
 target/
-pom.properties
 
 *.class
-target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
-target/m2e-wtp/web-resources/META-INF/maven/br.com.radioscriptrun/radioscriptrun/pom.properties
+*.MF
+*.properties
