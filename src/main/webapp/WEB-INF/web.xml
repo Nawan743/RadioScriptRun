@@ -46,48 +46,8 @@
   	<description></description>
   	<servlet-class>Controller.LimpaBancoServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>S3</servlet-name>
-  	<display-name>S3</display-name>
-  	<description></description>
-  	<servlet-class>Controller.S3</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>S3Amazon</servlet-name>
-  	<display-name>S3Amazon</display-name>
-  	<description></description>
-  	<servlet-class>Controller.S3Amazon</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>s3</servlet-name>
-  	<display-name>s3</display-name>
-  	<description></description>
-  	<servlet-class>Controller.s3</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>AmazonS3</servlet-name>
-  	<display-name>AmazonS3</display-name>
-  	<description></description>
-  	<servlet-class>Controller.AmazonS3</servlet-class>
-  </servlet>
   <servlet-mapping>
   	<servlet-name>LimpaBancoServlet</servlet-name>
   	<url-pattern>/limpa-banco</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>S3</servlet-name>
-  	<url-pattern>/S3</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>S3Amazon</servlet-name>
-  	<url-pattern>/S3Amazon</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>s3</servlet-name>
-  	<url-pattern>/s3</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>AmazonS3</servlet-name>
-  	<url-pattern>/AmazonS3</url-pattern>
   </servlet-mapping>
 </web-app>
