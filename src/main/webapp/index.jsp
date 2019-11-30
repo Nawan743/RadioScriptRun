@@ -37,7 +37,7 @@
 <script src="./resources/scripts/index.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body onload="buscaLocalStorage()">
 	<c:import url="/WEB-INF/audio.jsp"></c:import>
 	<main>
 		<div class="giroflex">
@@ -55,27 +55,29 @@
 				onclick="trocarDivs()">
 		</form>
 		<div id="login">
-			<form action="login" method="POST" class="login">
+			<form action="login" method="POST" class="login" id="form-login">
 				<input type="text" name="username" class="user" id="username"
 					placeholder="Player" onfocus="userIcon('username')"
 					onblur="escondeUserIcon('username')"> <input
 					type="password" name="password" id="password" placeholder="Senha"
 					onfocus="passwordIcon('password')"
 					onblur="escondePasswordIcon('password')">
+				<div class="info" id="info-login">
 				<%
 					if (infoLogin != null) {
 				%>
-				<div class="info"><%=infoLogin%></div>
+				<%=infoLogin%>
 				<%
 					}
 				%>
-				<input type="submit" value="Jogar">
+				</div>
+				<input type="button" value="Jogar" id="submit-jogar" onclick="validaLogin()">
 				<input type="reset" value="Limpar"> <input type="button"
 					value="Visualizar Ranking 🏆" onclick="verRank()">
 			</form>
 		</div>
 		<div id="cadastro" style="display: none;">
-			<form action="cadastrar" method="POST" class="login">
+			<form action="cadastrar" method="POST" class="login" id="form-cadastro">
 				<input type="text" name="username" id="usernameCadastro"
 					placeholder="Player" class="user"
 					onfocus="userIcon('usernameCadastro')"
@@ -89,14 +91,17 @@
 					onblur="escondePasswordIcon('confirmPassword')"> <input
 					type="email" name="email" id="email" placeholder="Email"
 					onfocus="emailIcon()" onblur="escondeEmailIcon()">
+				<div class="info" id="info-cadastro">
 				<%
 					if (infoCadastro != null) {
 				%>
-				<div class="info"><%=infoCadastro%></div>
+				<%=infoCadastro%>
 				<%
 					}
 				%>
-				<input type="submit" value="Cadastrar"> <input
+				</div>
+				<input type="button" value="Cadastrar" id="submit-cadastrar" onclick="cadastro()">
+				<input
 					type="reset" value="Limpar">
 			</form>
 		</div>
