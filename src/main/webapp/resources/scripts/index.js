@@ -1,3 +1,4 @@
+// FAZ A INTERCALACAO ENTRE AS TELAS DE LOGIN E CADASTRO
 function trocarDivs() {
 	if (document.getElementById("loginCheck").checked) {
 		document.getElementById("login").style.display = "inherit";
@@ -8,14 +9,19 @@ function trocarDivs() {
 	}
 }
 
+// FAZ VALIDACAO DE PREENCHIMENTO ANTES DE ENVIAR AO SERVIDOR
 function validaLogin() {
 	let user = document.getElementById("username");
 	let pass = document.getElementById("password");
 	let entrar = document.getElementById("btnEntrar");
 
-	if (user.value == '' || pass.value == '') {
-		// entrar.disabled;
-		alert("Usuário e/ou senha inválido.");
+	if (user.value == "" || pass.value == "") {
+		if (user.value == "")
+			document.querySelector('#info-login').innerHTML = 'Favor preencher o campo "Player"!';
+		else
+			document.querySelector('#info-login').innerHTML = 'Favor preencher o campo "Senha"!';
+	} else {
+		document.querySelector('#form-login').submit();
 	}
 }
 
@@ -28,13 +34,12 @@ function passwordIcon() {
 	document.getElementById("password").style.backgroundPosition = "right";
 	document.getElementById("password").style.transition = "all 0.3s";
 }
+
 function cadastro() {
-	let usuarios = [];
 	let user = document.getElementById("usernameCadastro");
 	let pass = document.getElementById("passwordCadastro");
 	let confirmPass = document.getElementById("confirmPassword");
 	let email = document.getElementById("email");
-	let localBase = JSON.parse(localStorage.getItem("usuarios"));
 
 	user.style.borderBottom = "2px solid black";
 	pass.style.borderBottom = "2px solid black";
@@ -42,38 +47,43 @@ function cadastro() {
 	email.style.borderBottom = "2px solid black";
 
 	// let regex = new RegExp("[A-z0-9]{6}");
-	if (user.value == "") {
-		alert("Digite o usuario");
-		user.style.borderBottom = "2px solid red";
-	} else if (pass.value == "" /* && regex.test(pass) */) {
-		alert("Digite sua senha");
-		pass.style.borderBottom = "2px solid red";
-	} else if (confirmPass.value == "") {
-		alert("Confirme sua senha");
-		confirmPass.style.borderBottom = "2px solid red";
-	} else if (pass.value != confirmPass.value) {
-		alert("As senhas nao conferem, por favor verifique!");
-		pass.style.borderBottom = "2px solid red";
-		confirmPass.style.borderBottom = "2px solid red";
-	} else if (email.value == "") {
-		alert("Digite seu email");
-		email.style.borderBottom = "2px solid red";
-	} else {
-		if (localBase != null) {
-			usuarios = localBase;
+	if (user.value == '' || pass.value == '' || confirmPass.value == ''
+		|| user.value == pass.value || pass.value != confirmPass.value || email == '') {
+		if (user.value == "") {
+			document.querySelector('#info-cadastro').innerHTML = 'Favor preencher o campo "Player"!';
+			user.style.borderBottom = "2px solid red";
+		} else if (user.value == pass.value) {
+			document.querySelector('#info-cadastro').innerHTML = 'Seu apelido não pode ser igual a sua senha!';
+			user.style.borderBottom = "2px solid red";
+			pass.style.borderBottom = "2px solid red";
+		} else if (pass.value == "" /* && regex.test(pass) */) {
+			document.querySelector('#info-cadastro').innerHTML = 'Favor preencher o campo "Senha"!';
+			pass.style.borderBottom = "2px solid red";
+		} else if (confirmPass.value == "") {
+			document.querySelector('#info-cadastro').innerHTML = 'Favor preencher o campo "Confirmar Senha"!';
+			confirmPass.style.borderBottom = "2px solid red";
+		} else if (pass.value != confirmPass.value) {
+			document.querySelector('#info-cadastro').innerHTML = 'O campo "Senha" não pode ser diferente do campo "Confirmar Senha"!';
+			pass.style.borderBottom = "2px solid red";
+			confirmPass.style.borderBottom = "2px solid red";
+		} else {
+			document.querySelector('#info-cadastro').innerHTML = 'Favor preencher o campo "Email"!';
+			email.style.borderBottom = "2px solid red";
 		}
-		usuarios.push({
-			usuario : user.value,
-			senha : pass.value,
-			email : email.value
-		});
-		localStorage.setItem("usuarios", JSON.stringify(usuarios));
-		document.getElementById("login").style.display = "inherit";
-		document.getElementById("cadastro").style.display = "none";
-		document.getElementById("loginCheck").checked = true;
-		document.getElementById("cadastroCheck").checked = false;
-	}
+	} else {
+		localStorage.setItem('player', user.value);
+		localStorage.setItem('password', pass.value);
 
+		console.log('test')
+		document.querySelector('#form-cadastro').submit();
+	}
+}
+
+function buscaLocalStorage() {
+	if (localStorage.getItem('player') != null && localStorage.getItem('password') != null) {
+		document.querySelector('#username').value = localStorage.getItem('player');
+		document.querySelector('#password').value = localStorage.getItem('password');
+	}
 }
 
 function userIcon(id) {
