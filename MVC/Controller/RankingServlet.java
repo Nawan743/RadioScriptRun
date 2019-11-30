@@ -21,9 +21,8 @@ public class RankingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Banco banco = new Banco();
-		banco.criarBanco();
 
-		ArrayList<Player> players = banco.listaBanco();
+		ArrayList<Player> players = banco.buscarDadosBanco();
 
 		ArrayList<Player> top10 = QuickSort.ordenar(players, 0, players.size() - 1);
 

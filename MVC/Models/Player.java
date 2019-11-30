@@ -47,6 +47,6 @@ public class Player {
 	
 	@Override
 	public String toString() {
-		return "Player [Apelido: " + getNome() + ", Email: " + getEmail() + ", Score: " + score + "]";
+		return getNome() + ";" + getSenha() + ";" + getEmail() + ";" + getRank();
 	}
 }

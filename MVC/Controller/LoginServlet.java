@@ -1,4 +1,4 @@
- package Controller;
+package Controller;
 
 import java.io.IOException;
 
@@ -16,14 +16,18 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		Banco banco = new Banco();
-		banco.criarBanco();
 		String player = req.getParameter("username");
 		String senha = req.getParameter("password");
 		RequestDispatcher dispatcher;
-		
-		if (!banco.playerExiste(player) || !banco.senhaValida(player, senha)) {			
+
+		if (banco.playerExiste(player) && banco.senhaValida(player, senha)) {
+			dispatcher = req.getRequestDispatcher("/menu");
+			req.setAttribute("Player", player);
+			dispatcher.forward(req, resp);
+
+		} else {
 			if (!banco.playerExiste(player)) {
 				req.setAttribute("infoLogin", "Player informado não existe!");
 				req.setAttribute("telaExibir", "login");
@@ -33,11 +37,7 @@ public class LoginServlet extends HttpServlet {
 			}
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
-		} else {
-			dispatcher = req.getRequestDispatcher("/menu");
-			req.setAttribute("Player", player);
-			dispatcher.forward(req, resp);
-		}		
+		}
 	}
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
