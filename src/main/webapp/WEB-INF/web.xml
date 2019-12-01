@@ -46,8 +46,10 @@
   	<description></description>
   	<servlet-class>Controller.LimpaBancoServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>LimpaBancoServlet</servlet-name>
-  	<url-pattern>/limpa-banco</url-pattern>
-  </servlet-mapping>
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<display-name>LogoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>Controller.LogoutServlet</servlet-class>
+  </servlet>
 </web-app>
