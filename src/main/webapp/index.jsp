@@ -1,3 +1,4 @@
+<%@page import="Models.ValidaSessao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -7,6 +8,15 @@
 	String infoLogin = (String) (request.getAttribute("infoLogin"));
 	String infoCadastro = (String) (request.getAttribute("infoCadastro"));
 	String telaExibir = (String) (request.getAttribute("telaExibir"));
+	HttpSession sessao = request.getSession();
+	RequestDispatcher dispatcher = null;
+	if (ValidaSessao.estaValidado(sessao)) {
+		dispatcher = request.getRequestDispatcher("/menu");
+		dispatcher.forward(request, response);
+		System.out.println("Está logado!");
+	} else {
+		System.out.println("Não está logado!");
+	}
 %>
 
 <!DOCTYPE html>

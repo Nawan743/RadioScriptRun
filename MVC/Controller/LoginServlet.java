@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Models.Banco;
 
@@ -23,6 +24,8 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher dispatcher;
 
 		if (banco.playerExiste(player) && banco.senhaValida(player, senha)) {
+			HttpSession sessao = req.getSession();
+			sessao.setAttribute("playerLogado", player);
 			dispatcher = req.getRequestDispatcher("/menu");
 			req.setAttribute("Player", player);
 			dispatcher.forward(req, resp);
