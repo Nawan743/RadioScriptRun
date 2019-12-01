@@ -18,7 +18,7 @@ function turnedDown() {
 function jumped() {
     document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/pulando.png')";
     document.getElementById('idBoneco').style.marginTop = "50px";
-    setTimeout(running, 900);
+    setTimeout(running, 800);
 }
 
 
@@ -26,7 +26,8 @@ function jumped() {
 
 // --------------- Controta os obstáculos ---------------------------
 const g_obstaculos = [
-	{src: 'passaro.webp', position: 'top'},
+	{src: 'passaro.gif', position: 'top'},
+	{src: 'barril.png', position: 'down'},
 	//{src: 'passaro.png', position: 'middle'},
 	{src: 'monstro.gif', position: 'down'}
 ];
@@ -111,6 +112,7 @@ function movimentarBloco(idBloco,indiceBloco) {
     let pasta = window.location.pathname;
     // Testa detecção de colisão no if
     if(detectarColisao("idBoneco", idBloco)){
+    	document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/morrendo.gif')";
     	clearInterval(g_cronometros[indiceBloco]);
     	alert("Você perdeu!");
     	window.open(url.replace(pasta, "/rank"),"_self");
