@@ -68,6 +68,9 @@
 				}
 			%>
 		</table>
+		<form action="jogo">
+			<button type="submit">Voltar para o menu</button>
+		</form>
 	</main>
 </body>
 </html>

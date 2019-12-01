@@ -53,3 +53,15 @@ table {
 table td {
 	text-align: center;
 }
+
+button {
+	width: 88%;
+	padding: 10px;
+	background-color: black;
+	border: none;
+	margin: 2%;
+	border-radius: 10px;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+}
