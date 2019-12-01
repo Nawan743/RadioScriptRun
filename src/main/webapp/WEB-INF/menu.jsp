@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="./resources/estilo/menu.css" type="text/css">
 
     <!-- JavaScript -->
-    <script src="./resources/scripts/index.js"></script>
+    <script src="./resources/scripts/menu.js"></script>
 </head>
 
 <body>
@@ -35,14 +35,7 @@
         <header>
             <h1>Bem-vindo, <%=jogador %>!</h1>
         </header>
-        <form id="jogo" action="jogo" method="POST">
-            <abbr title="Jogar">
-                <input type="submit" value="▶️">
-            </abbr>
-            <abbr title="Visualizar Ranking">
-                <input type="button" value="🏆" onclick="verRank()">
-            </abbr>
-        </form>
+		<script>menu()</script>
     </main>
 </body>
 

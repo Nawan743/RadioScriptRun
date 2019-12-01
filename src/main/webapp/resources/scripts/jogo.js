@@ -113,7 +113,7 @@ function movimentarBloco(idBloco,indiceBloco) {
     if(detectarColisao("idBoneco", idBloco)){
     	clearInterval(g_cronometros[indiceBloco]);
     	alert("Você perdeu!");
-    	window.open(url.replace(pasta, "")+"/rank","_self");
+    	window.open(url.replace(pasta, "/rank"),"_self");
     }
     // Bloco tocou a margem esquerda da caixa de blocos. Portanto, para o
 	// cronometro dele e remove-o da interface
