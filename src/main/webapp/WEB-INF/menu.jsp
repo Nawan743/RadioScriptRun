@@ -35,7 +35,14 @@
         <header>
             <h1>Bem-vindo, <%=jogador %>!</h1>
         </header>
-		<script>menu()</script>
+		<div id="jogar">
+			<input type="button" value="▶️" onclick="escolherNivel()" />
+			<p>Jogar</p>
+		</div>
+		<div id="visualizarRanking">
+			<input type="button" value="🏆" onclick="verRank()" />
+			<p>Ranking</p>
+		</div>
     </main>
 </body>
 

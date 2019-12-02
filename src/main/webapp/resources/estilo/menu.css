@@ -55,5 +55,12 @@ h1 {
 #jogar, #visualizarRanking{
 	display: inline-block;
 	width: 150px;
-	margin: 50px;
+	margin: 20px 40px;
+}
+
+#facil, #medio, #dificil {
+	font-size: 55px;
+	padding: 0px;
+	margin: 10px;
+	width: 150px;
 }
