@@ -8,15 +8,6 @@
 	String infoLogin = (String) (request.getAttribute("infoLogin"));
 	String infoCadastro = (String) (request.getAttribute("infoCadastro"));
 	String telaExibir = (String) (request.getAttribute("telaExibir"));
-	HttpSession sessao = request.getSession();
-	RequestDispatcher dispatcher = null;
-	if (ValidaSessao.estaValidado(sessao)) {
-		dispatcher = request.getRequestDispatcher("/menu");
-		dispatcher.forward(request, response);
-		System.out.println("Está logado!");
-	} else {
-		System.out.println("Não está logado!");
-	}
 %>
 
 <!DOCTYPE html>
@@ -47,7 +38,7 @@
 <script src="./resources/scripts/index.js" type="text/javascript"></script>
 </head>
 
-<body onload="buscaLocalStorage()">
+<body onload="buscaLocalStorage(), verificaMsgLogin('info-login')">
 	<c:import url="/WEB-INF/audio.jsp"></c:import>
 	<main>
 		<div class="giroflex">

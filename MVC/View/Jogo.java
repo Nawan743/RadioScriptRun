@@ -20,8 +20,12 @@ public class Jogo extends HttpServlet {
 		HttpSession sessao = req.getSession();
 		RequestDispatcher dispatcher;
 		
-		dispatcher = (ValidaSessao.estaValidado(sessao)) ? req.getRequestDispatcher("/WEB-INF/jogo.jsp") : req.getRequestDispatcher("/");
-		dispatcher.forward(req, resp);
+		if (ValidaSessao.estaValidado(sessao)) {
+			dispatcher = req.getRequestDispatcher("/WEB-INF/jogo.jsp");
+			dispatcher.forward(req, resp);
+		} else {
+			resp.sendRedirect("/");
+		}
 	}
 
 }

@@ -29,7 +29,19 @@
 </head>
 
 <body>
-	<% String jogador = (String) request.getAttribute("Player"); %>
+	<% 
+	HttpSession sessao = request.getSession();
+	
+	String jogador = (String) request.getAttribute("Player");
+	sessao.setAttribute(jogador, "Player");
+	
+	if (jogador == null || jogador.isEmpty())
+		jogador = (String) sessao.getAttribute("Player");	
+	
+	if (jogador == null || jogador.isEmpty())
+		response.sendRedirect("/");
+	%>
+	
     <c:import url="audio.jsp"></c:import>
     <main>
         <header>

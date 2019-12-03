@@ -119,3 +119,8 @@ function escondeEmailIcon() {
 function verRank() {
 	window.location.href = "rank";
 }
+
+function verificaMsgLogin(id) {
+	if (document.querySelector('#'+id).innerText != "Player cadastrado com sucesso!")
+		document.querySelector('#'+id).style.color = "red";
+}

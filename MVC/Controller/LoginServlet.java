@@ -16,15 +16,15 @@ import Models.Banco;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Banco banco = new Banco();
 		String player = req.getParameter("username");
 		String senha = req.getParameter("password");
 		RequestDispatcher dispatcher;
-
+		HttpSession sessao = req.getSession();
+		
 		if (banco.playerExiste(player) && banco.senhaValida(player, senha)) {
-			HttpSession sessao = req.getSession();
 			sessao.setAttribute("playerLogado", player);
 			dispatcher = req.getRequestDispatcher("/menu");
 			req.setAttribute("Player", player);
@@ -38,15 +38,16 @@ public class LoginServlet extends HttpServlet {
 				req.setAttribute("infoLogin", "Senha incorreta!");
 				req.setAttribute("telaExibir", "login");
 			}
+			sessao.invalidate();
 			dispatcher = req.getRequestDispatcher("index.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}
 
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-		req.setAttribute("telaExibir", "login");
-		dispatcher.forward(req, resp);
-	}
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+//		req.setAttribute("telaExibir", "login");
+//		dispatcher.forward(req, resp);
+//	}
 
 }
