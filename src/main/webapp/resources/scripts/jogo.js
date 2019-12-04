@@ -18,7 +18,7 @@ function turnedDown() {
 function jumped() {
     document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/pulando.png')";
     document.getElementById('idBoneco').style.marginTop = "50px";
-    setTimeout(running, 800);
+    setTimeout(running, 950);
 }
 
 
@@ -43,7 +43,7 @@ const g_cronometros = [1,2,3,4,5,6,7,8,9,10];
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 function main(indiceBloco = 0) {
     criarNovoBloco(indiceBloco);
-    setTimeout(main,sortearNro(1,4)*1000,(indiceBloco>9)?0:indiceBloco+1);
+    setTimeout(main,sortearNro(2,4)*1000,(indiceBloco>9)?0:indiceBloco+1);
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ function criarNovoBloco(indiceBloco) {
     novoBloco = document.createElement("div");
     novoBloco.setAttribute("id",idNovoBloco);
     novoBloco.setAttribute("class","novoBloco");
-    const numSort = sortearNro(0,1);
+    const numSort = sortearNro(0,g_obstaculos.length-1);
     if (g_obstaculos[numSort].position == 'top') {
     	cssNovoBloco = `margin-top: 70px; left:+${parseInt(larguracaixaBlocos)-larguraBloco}px; width:${larguraBloco}px; height:${alturaBloco}px; z-index:${indiceBloco}; background-image:url(./resources/images/${g_obstaculos[numSort].src}); background-size: 100%;`;
     } else if (g_obstaculos[numSort].position == 'middle') {
