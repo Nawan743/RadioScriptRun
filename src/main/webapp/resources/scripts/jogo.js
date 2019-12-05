@@ -7,16 +7,23 @@ function running() {
 	runOn = true;
     jumpOn = false;
 	document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/correndo.gif')";
-    document.getElementById('idBoneco').style.marginTop = "230px";
+	document.getElementById('idBoneco').style.height = "100px";
+	document.getElementById('idBoneco').style.width = "90px";
+	document.getElementById('idBoneco').style.marginTop = "230px";
 }
 
 function turnedDown() {
 	document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/agaixado.gif')";
-    document.getElementById('idBoneco').style.marginTop = "230px";
+	document.getElementById('idBoneco').style.height = "80px";
+	document.getElementById('idBoneco').style.width = "80px";
+    document.getElementById('idBoneco').style.marginTop = "240px";
+    
 }
 
 function jumped() {
     document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/pulando.png')";
+    document.getElementById('idBoneco').style.height = "100px";
+	document.getElementById('idBoneco').style.width = "90px";
     document.getElementById('idBoneco').style.marginTop = "50px";
     setTimeout(running, 950);
 }
@@ -28,7 +35,7 @@ function jumped() {
 const g_obstaculos = [
 	{src: 'passaro.gif', position: 'top'},
 	{src: 'barril.png', position: 'down'},
-	//{src: 'passaro.png', position: 'middle'},
+	{src: 'morcego.gif', position: 'middle'},
 	{src: 'monstro.gif', position: 'down'}
 ];
 const g_cronometros = [1,2,3,4,5,6,7,8,9,10];
@@ -112,11 +119,13 @@ function movimentarBloco(idBloco,indiceBloco) {
     let pasta = window.location.pathname;
     // Testa detecção de colisão no if
     if(detectarColisao("idBoneco", idBloco)){
+    	document.getElementById('idBoneco').style.height = "100px";
+    	document.getElementById('idBoneco').style.width = "90px";
     	document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/morrendo.gif')";
-    	clearInterval(g_cronometros[indiceBloco]);
-    	alert("Você perdeu!");
+    	setTimeout( () => clearInterval(g_cronometros[indiceBloco]),1000);
     	window.open(url.replace(pasta, "/rank"),"_self");
     }
+    
     // Bloco tocou a margem esquerda da caixa de blocos. Portanto, para o
 	// cronometro dele e remove-o da interface
     if (posicaoBloco < 0) { 

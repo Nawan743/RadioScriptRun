@@ -48,7 +48,7 @@
             <h1>Bem-vindo, <%=jogador %>!</h1>
         </header>
 		<div id="jogar">
-			<input type="button" value="▶️" onclick="escolherNivel()" />
+			<input id = "play" type="button" value="▶️" onclick="escolherNivel()" />
 			<p>Jogar</p>
 		</div>
 		<div id="visualizarRanking">

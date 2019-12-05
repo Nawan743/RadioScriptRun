@@ -10,11 +10,16 @@ html {
 
 main {
     text-align: center;
-    background-color: yellow;
+    /*background-color: yellow;*/
+    background-image: url("../images/banner.jpg");
+    background-size: 100%;
+    background-position: 0px 60px;
+    background-repeat: no-repeat;
     border-radius: 13px;
     border: 15px solid black;
     box-shadow: -1px 1px 10px 3px lightgray;
-    width: 45%;
+    width: 50%;
+    height: 75%;
     font-size: 1.6rem;
 }
 
@@ -31,8 +36,8 @@ body {
 
 input{
     text-align: center;
-    background-color: rgb(142, 170, 48);
-    color: rgb(255, 251, 251);
+    background-color: rgba(142, 170, 48,0.1);
+    color: rgb(255, 251, 251, 0.8);
     text-shadow:1px 1px 2px grey;
     border: none;
     border-radius:100%;
@@ -63,4 +68,7 @@ h1 {
 	padding: 0px;
 	margin: 10px;
 	width: 150px;
+}
+p{
+	color: white;
 }
