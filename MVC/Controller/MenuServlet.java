@@ -1,4 +1,4 @@
-package View;
+package Controller;
 
 import java.io.IOException;
 
@@ -12,19 +12,22 @@ import javax.servlet.http.HttpSession;
 
 import Models.ValidaSessao;
 
-@WebServlet("/jogo")
-public class Jogo extends HttpServlet {
+@WebServlet("/menu")
+public class MenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+	RequestDispatcher dispatcher;
+
+	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession sessao = req.getSession();
-		RequestDispatcher dispatcher;
-		
-		if (ValidaSessao.estaValidado(sessao)) {
-			dispatcher = req.getRequestDispatcher("/WEB-INF/jogo.jsp");
-			dispatcher.forward(req, resp);
-		} else {
+		if (!ValidaSessao.estaValidado(sessao)) {
 			resp.sendRedirect("/");
+		} else {
+			dispatcher = req.getRequestDispatcher("/WEB-INF/menu.jsp");
+			String player = (String) req.getAttribute("Player");
+			req.setAttribute("Player", player);
+			dispatcher.forward(req, resp);
 		}
 	}
 

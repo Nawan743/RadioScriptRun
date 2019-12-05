@@ -15,6 +15,13 @@ public class Banco {
 	 * public ArrayList<Player> buscarDadosBanco2() { ArrayList<Player> players =
 	 * S3.buscarDadosBanco(); return players; }
 	 */
+	
+	public void criarBanco() throws IOException {
+		File banco = new File("banco.txt");
+		if (!banco.exists()) {
+			banco.createNewFile();
+		}
+	}
 
 	public ArrayList<Player> buscarDadosBanco() throws IOException {
 		ArrayList<Player> players = new ArrayList<Player>();
@@ -59,9 +66,12 @@ public class Banco {
 	}
 
 	public void registraPlayer(Player p) throws IOException {
+		criarBanco();
 		ArrayList<Player> players = buscarDadosBanco();
 		players.add(p);
 		enviarDadosBanco(players);
+		Email enviaEmail = new Email();
+		enviaEmail.enviaEmailBoasVindas(p);
 	}
 
 	public boolean playerExiste(String playerValidar) throws IOException {
