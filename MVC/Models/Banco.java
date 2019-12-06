@@ -111,7 +111,7 @@ public class Banco {
 			if (!linha.contains(player.getNome())) {
 				contatos += linha;
 			} else {
-				contatos += (player.toString());
+				registraPlayer(player);;
 			}
 		}
 
