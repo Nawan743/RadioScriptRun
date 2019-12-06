@@ -100,6 +100,7 @@ public class Banco {
 	}
 
 	public void editarRank(Player player, Integer novaPontuacao) throws IOException {
+		player.setRank(novaPontuacao);
 		String contatos = "";
 		LineNumberReader lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
 		String linha = "";
@@ -110,8 +111,7 @@ public class Banco {
 			if (!linha.contains(player.getNome())) {
 				contatos += linha;
 			} else {
-				contatos += (player.getNome() + ";" + player.getSenha() + ";" + player.getEmail() + ";"
-						+ novaPontuacao);
+				contatos += (player.toString());
 			}
 		}
 
