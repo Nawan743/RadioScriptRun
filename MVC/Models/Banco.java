@@ -15,7 +15,7 @@ public class Banco {
 	 * public ArrayList<Player> buscarDadosBanco2() { ArrayList<Player> players =
 	 * S3.buscarDadosBanco(); return players; }
 	 */
-	
+
 	public void criarBanco() throws IOException {
 		File banco = new File("banco.txt");
 		if (!banco.exists()) {
@@ -97,6 +97,28 @@ public class Banco {
 			}
 		}
 		return encontrou;
+	}
+
+	public void editarRank(Player player, Integer novaPontuacao) throws IOException {
+		String contatos = "";
+		LineNumberReader lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
+		String linha = "";
+
+		while ((linha = lineCounter.readLine()) != null) {
+			if (!linha.isEmpty() && linha != "")
+				contatos += "\n";
+			if (!linha.contains(player.getNome())) {
+				contatos += linha;
+			} else {
+				contatos += (player.getNome() + ";" + player.getSenha() + ";" + player.getEmail() + ";"
+						+ novaPontuacao);
+			}
+		}
+
+		BufferedWriter writer = new BufferedWriter(new FileWriter("banco.txt", false));
+		writer.append(contatos);
+		writer.close();
+		lineCounter.close();
 	}
 
 }

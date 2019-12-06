@@ -36,3 +36,7 @@ function escolherNivel() {
 function verRank() {
 	window.location.href = "rank";
 }
+
+function logout() {
+	window.location.href = "/logout";
+}

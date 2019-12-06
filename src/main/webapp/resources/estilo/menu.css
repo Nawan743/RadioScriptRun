@@ -57,10 +57,16 @@ h1 {
     margin: 0px 30px;
 }
 
-#jogar, #visualizarRanking{
+.menu-botao {
 	display: inline-block;
 	width: 150px;
 	margin: 20px 40px;
+}
+
+#logout-buttom {
+	background: url(https://myrealdomain.com/images/cara-feliz-e-triste-1.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 #facil, #medio, #dificil {

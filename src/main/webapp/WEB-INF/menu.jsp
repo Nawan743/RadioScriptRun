@@ -47,13 +47,17 @@
         <header>
             <h1>Bem-vindo, <%=jogador %>!</h1>
         </header>
-		<div id="jogar">
+		<div id="jogar" class="menu-botao">
 			<input id = "play" type="button" value="▶️" onclick="escolherNivel()" />
 			<p>Jogar</p>
 		</div>
-		<div id="visualizarRanking">
+		<div id="visualizarRanking" class="menu-botao">
 			<input type="button" value="🏆" onclick="verRank()" />
 			<p>Ranking</p>
+		</div>
+		<div id="logout" class="menu-botao">
+			<input type="button" id="logout-buttom" onclick="logout()"/>
+			<p>Sair</p>
 		</div>
     </main>
 </body>
