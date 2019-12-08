@@ -34,6 +34,9 @@
     <div id="caixaBlocos">
         <div class="boxBoneco" id="idBoneco"></div>
     </div>
+    
+    <div id="gameOver">GAME OVER</div>
+    <div id="msgLevel"></div>
 
     <!-- JavaScript -->
     <script src="./resources/scripts/jogo.js"></script>

@@ -1,29 +1,44 @@
-const levelConfig = {
-	obstaculos: [
-		{src: 'passaro.gif', position: 'top'},
-		{src: 'barril.png', position: 'down'}
-	],
-	speedJump: 500,
-	speedJumpUp: 15,
-	speedmoveObstacle: 5
+let level = 1;
+
+let levelConfig = configLevelGame(level);
+
+function configLevelGame(level) {
+
+	if (level == 1) {
+		return {
+			obstaculos: [
+				{src: 'passaro.gif', position: 'top'},
+				{src: 'barril.png', position: 'down'}
+			],
+			speedJump: 600,
+			speedJumpUp: 15,
+			speedmoveObstacle: 5
+		};
+	} else if (level == 2) {
+		return {
+			obstaculos: [
+				{src: 'passaro.gif', position: 'top'},
+				{src: 'monstro.gif', position: 'down'},
+				{src: 'barril.png', position: 'down'}
+			],
+			speedJump: 500,
+			speedJumpUp: 15,
+			speedmoveObstacle: 4
+		};
+	} else if (level == 3) {
+		return {
+			obstaculos: [
+				{src: 'passaro.gif', position: 'top'},
+				{src: 'passaro.gif', position: 'middle'},
+				{src: 'monstro.gif', position: 'down'},
+				{src: 'barril.png', position: 'down'}
+			],
+			speedJump: 400,
+			speedJumpUp: 15,
+			speedmoveObstacle: 2
+		};
+	}
 }
-/*
-const g_obstaculos = [
-	level1 = [
-		{src: 'passaro.gif', position: 'top'},
-		{src: 'barril.png', position: 'down'}
-	],
-	level2 = [
-		{src: 'passaro.gif', position: 'top'},
-		{src: 'monstro.gif', position: 'down'}
-	],
-	level3 = [
-		{src: 'passaro.gif', position: 'top'},
-		{src: 'passaro.gif', position: 'middle'},
-		{src: 'monstro.gif', position: 'down'},
-		{src: 'barril.png', position: 'down'}
-	]
-];*/
 
 let transition;
 
@@ -148,10 +163,12 @@ const factoryObstacle = function() {
 
 	function removeObstacle(id) {
 		const item = document.getElementById(id);
-		item.parentNode.removeChild(item);
-		//console.log('removeObstacle');
+		//console.log(item);
+		if (item !== null)
+			item.parentNode.removeChild(item);
 		const aux = id.replace('bloco','');
 		clearInterval(listObstacles[aux]);
+		//console.log(listObstacles)
 	}
 
 	function moveObstacle(id) {
@@ -205,10 +222,6 @@ const factoryObstacle = function() {
 					&& pontos_obj2[indice].y <= obj1.top + obj1.height
 			) {
 				colidiu = true;
-				//game.generateObstacles(0);
-				/*for (i=0; i< listObstacles.lenght; i++) {
-					clearInterval(listObstacles[i]);
-				}*/
 				for (var i = 1; i < 99999; i++) {
 					window.clearInterval(i);
 				}
@@ -245,29 +258,26 @@ const factoryGame = function() {
 	const game = {
 		startCurrentScore,
 		generateObstacles,
-		gameOver
+		gameOver,
+		piscarElemento
 	}
 
 	let cronCurrentScore;
 	let current_score = 0;
 
-	function generateObstacles(flag) {
-		console.log('entrou '+flag);
+	function generateObstacles(flag,id=0) {
 		if (flag == 1) {
-			const id = listObstacles.length;
 			const obstacle = factoryObstacle();
 			obstacle.addObstacle(`bloco${id}`);
 			listObstacles[id] = obstacle.moveObstacle(`bloco${id}`);
-			setTimeout(generateObstacles,sortearNro(2,4)*1000,1);
+			setTimeout(generateObstacles,sortearNro(2,4)*1000,1,(id>9)?0:id+1);
 		}
 	}
 
 	function gameOver() {
 		//console.log('GAME OVER');
 		generateObstacles(0);
-		for (i=0; i< listObstacles.lenght; i++) {
-			clearInterval(listObstacles[i]);
-		}
+		document.getElementById('gameOver').style.display = 'block';
 	}
 
 	function startCurrentScore() {
@@ -277,6 +287,72 @@ const factoryGame = function() {
 	function updateScore() {
 		current_score++;
 		document.getElementById('current_score_label').innerHTML = pad(current_score, 6);
+		// Nivel 2
+		if (current_score == 200) {
+			// changeLevel(2).then((result) => {
+			// 	console.log('then')
+			// }).catch((err) => {
+			// 	console.log("Erro ao mudar de fase");
+			// });
+			changeLevel(++level).then(() => {
+				levelConfig = configLevelGame(level);
+				startGame();
+				console.log('ja foi')
+			});
+		} else if(current_score == 500) {
+			changeLevel(++level).then(() => {
+				levelConfig = configLevelGame(level);
+				startGame();
+				console.log('ja foi')
+			});
+		}
+	}
+
+	async function changeLevel(level) {
+		console.log(`changeLevel ${level}`);
+		return await new Promise(resolve => {
+			// Imprime na tela			
+			document.getElementById('msgLevel').innerHTML = `LEVEL ${level}`;
+			document.getElementById('msgLevel').style.display = 'block';
+			player.await();
+			//Salva os dados no banco
+			// implementar
+			
+			
+			// Pausa o jogo até a mudança de nível
+			generateObstacles(0);
+			for (var i = 1; i < 99999; i++) {
+				window.clearInterval(i);
+			}
+
+			// Pisca o boneco
+			document.getElementById('idBoneco').style.display = "none";
+			cron_piscar = setInterval(() => {
+				piscarElemento('idBoneco');
+			}, 250); 
+
+			// Remove todos os obstáculos
+			const obstacle = factoryObstacle();
+			for (let i = 0; i < listObstacles.length; i++) {
+				obstacle.removeObstacle(`bloco${i}`);
+			}
+
+			setTimeout(() => {
+				clearInterval(cron_piscar);
+				document.getElementById('idBoneco').style.display = "block";
+				document.getElementById('msgLevel').style.display = 'none';
+				resolve(level);
+			}, 2000);
+		});
+	}
+
+	function piscarElemento(id) {
+		let elem = document.getElementById(id);
+    	if (elem.style.display == 'block') {
+            elem.style.display = 'none';
+	    } else {
+            elem.style.display = 'block';
+        }
 	}
 
 	function pad(text, size) {
