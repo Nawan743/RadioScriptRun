@@ -138,7 +138,7 @@ public class Banco {
 
 		while ((linha = lineCounter.readLine()) != null) {
 			if (linha.contains(nomePlayer)) {
-				String[] info = linha.split(" ; ");
+				String[] info = linha.trim().split(";");
 				return new Player(info[0], info[1], info[2], Integer.parseInt(info[3]));
 			}
 		}
