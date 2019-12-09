@@ -26,8 +26,8 @@ public class AtualizaRankServlet extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 
-		Player player = (Player) request.getAttribute("player");
-		Integer novaPontuacao = Integer.parseInt((String) request.getAttribute("pontosAtuais"));
+		Player player = banco.instanciaPlayer((String) request.getParameter("player"));
+		Integer novaPontuacao = Integer.parseInt((String) request.getParameter("pontosAtuais"));
 		banco.criarBanco();
 
 		String retorno;
