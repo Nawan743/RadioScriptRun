@@ -19,15 +19,8 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="resources/estilo/menu.css" type="text/css">
-<link rel="stylesheet" href="resources/estilo/rank.css"
-	type="text/css">
-<style>
-h3 {
-	margin-top: 400px;
-	color: white;
-	text-shadow: 1px 1px 2px black;
-}
-</style>
+<link rel="stylesheet" href="resources/estilo/rank.css" type="text/css">
+<link rel="stylesheet" href="resources/estilo/404.css" type="text/css">
 </head>
 <body>
 	<c:import url="WEB-INF/audio.jsp"></c:import>
@@ -35,10 +28,12 @@ h3 {
 		<header>
 			<h1>404 - Página não encontrada!</h1>
 		</header>
-		<h3>Desculpe, a página que você está procurando não existe!</h3>
-		<form action="menu">
-			<button type="submit">Voltar para o menu</button>
-		</form>
+		<footer>
+			<h3>Desculpe, a página que você está procurando não existe!</h3>
+			<form action="menu">
+				<button type="submit">Voltar para o menu</button>
+			</form>
+		</footer>
 	</main>
 </body>
 </html>
