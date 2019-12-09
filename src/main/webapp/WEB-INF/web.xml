@@ -58,6 +58,12 @@
 		<description></description>
 		<servlet-class>Controller.NaoEncontradoServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AtualizaRankServlet</servlet-name>
+		<display-name>AtualizaRankServlet</display-name>
+		<description></description>
+		<servlet-class>Controller.AtualizaRankServlet</servlet-class>
+	</servlet>
 	<error-page>
 		<error-code>404</error-code>
 		<location>/nao-encontrado</location>

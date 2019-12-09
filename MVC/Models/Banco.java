@@ -99,26 +99,35 @@ public class Banco {
 		return encontrou;
 	}
 
-	public void editarRank(Player player, Integer novaPontuacao) throws IOException {
-		player.setRank(novaPontuacao);
-		String contatos = "";
-		LineNumberReader lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
-		String linha = "";
+	public boolean editarRank(Player player, Integer novaPontuacao) {
+		try {
+			player.setRank(novaPontuacao);
+			String contatos = "";
+			LineNumberReader lineCounter = new LineNumberReader(
+					new InputStreamReader(new FileInputStream("banco.txt")));
+			String linha = "";
 
-		while ((linha = lineCounter.readLine()) != null) {
-			if (!linha.isEmpty() && linha != "")
-				contatos += "\n";
-			if (!linha.contains(player.getNome())) {
-				contatos += linha;
-			} else {
-				contatos += (player.toString());
+			while ((linha = lineCounter.readLine()) != null) {
+				if (!linha.isEmpty() && linha != "")
+					contatos += "\n";
+				if (!linha.contains(player.getNome())) {
+					contatos += linha;
+				} else {
+					contatos += (player.toString());
+				}
 			}
-		}
 
-		BufferedWriter writer = new BufferedWriter(new FileWriter("banco.txt", false));
-		writer.append(contatos);
-		writer.close();
-		lineCounter.close();
+			BufferedWriter writer = new BufferedWriter(new FileWriter("banco.txt", false));
+			writer.append(contatos);
+			writer.close();
+			lineCounter.close();
+
+			return true;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
