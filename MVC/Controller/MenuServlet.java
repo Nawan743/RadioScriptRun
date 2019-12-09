@@ -25,8 +25,6 @@ public class MenuServlet extends HttpServlet {
 			resp.sendRedirect("/");
 		} else {
 			dispatcher = req.getRequestDispatcher("/WEB-INF/menu.jsp");
-			String player = (String) req.getAttribute("Player");
-			req.setAttribute("Player", player);
 			dispatcher.forward(req, resp);
 		}
 	}
