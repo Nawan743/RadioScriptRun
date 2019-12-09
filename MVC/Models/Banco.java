@@ -32,10 +32,12 @@ public class Banco {
 		String nextLine = null;
 
 		while ((nextLine = lineCounter.readLine()) != null) {
-			String[] info = nextLine.trim().split(";");
-			Player player = new Player(info[0].trim(), info[1].trim(), info[2].trim(),
-					Integer.parseInt(info[3].trim()));
-			players.add(player);
+			if (!nextLine.isEmpty() && nextLine != "") {
+				String[] info = nextLine.trim().split(";");
+				Player player = new Player(info[0].trim(), info[1].trim(), info[2].trim(),
+				Integer.parseInt(info[3].trim()));
+				players.add(player);
+			}
 		}
 		lineCounter.close();
 		return players;
@@ -135,9 +137,11 @@ public class Banco {
 	public Player instanciaPlayer(String nomePlayer) throws IOException {
 		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
 		String linha = null;
+		System.out.println(nomePlayer);
 
 		while ((linha = lineCounter.readLine()) != null) {
-			if (linha.contains(nomePlayer)) {
+			System.out.println(linha);
+			if (!linha.isEmpty() && linha != "" && linha.contains(nomePlayer)) {
 				String[] info = linha.trim().split(";");
 				return new Player(info[0], info[1], info[2], Integer.parseInt(info[3]));
 			}

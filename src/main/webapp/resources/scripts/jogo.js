@@ -285,6 +285,19 @@ const factoryGame = function() {
 		//console.log('GAME OVER');
 		generateObstacles(0);
 		document.getElementById('gameOver').style.display = 'block';
+		//Salva os dados no banco
+		let data = new FormData();
+		data.append('player', 'wanderson');
+		data.append('pontosAtuais', current_score);
+
+		const oReq = new XMLHttpRequest();
+		oReq.open("post", "/atualiza-rank", true);
+		// Envia a informação do cabeçalho junto com a requisição.
+		oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		oReq.send(data);
+		oReq.onload = function() {
+			console.log('salvou os pontos')
+		};
 	}
 
 	function startCurrentScore() {
@@ -340,8 +353,10 @@ const factoryGame = function() {
 			data.append('player', 'wanderson');
 			data.append('pontosAtuais', current_score);
 			
-			var oReq = new XMLHttpRequest();
+			const oReq = new XMLHttpRequest();
 			oReq.open("post", "/atualiza-rank", true);
+			// Envia a informação do cabeçalho junto com a requisição.
+			oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			oReq.send(data);
 			oReq.onload = function() {
 				setTimeout(() => {
