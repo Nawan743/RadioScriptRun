@@ -44,4 +44,4 @@ function logout() {
 	window.location.href = "/logout";
 }
 
-const level = id => localStorage.setItem("level", JSON.stringify(id));
+const level = id => localStorage.setItem("level", id);

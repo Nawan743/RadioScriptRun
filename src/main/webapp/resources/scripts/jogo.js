@@ -1,4 +1,11 @@
+const ls = localStorage.getItem('level');
 let level = 1;
+if (ls == "medio") {
+	level = 2;
+} else if (ls == "dificil") {
+	level = 3;
+}
+console.log(level);
 
 let levelConfig = configLevelGame(level);
 
@@ -287,19 +294,13 @@ const factoryGame = function() {
 	function updateScore() {
 		current_score++;
 		document.getElementById('current_score_label').innerHTML = pad(current_score, 6);
-		// Nivel 2
-		if (current_score == 200) {
-			// changeLevel(2).then((result) => {
-			// 	console.log('then')
-			// }).catch((err) => {
-			// 	console.log("Erro ao mudar de fase");
-			// });
+		if (current_score == 200 && level == 1) { // Nível 2
 			changeLevel(++level).then(() => {
 				levelConfig = configLevelGame(level);
 				startGame();
 				console.log('ja foi')
 			});
-		} else if(current_score == 500) {
+		} else if(current_score == 500 && level == 2) { // Nível 3
 			changeLevel(++level).then(() => {
 				levelConfig = configLevelGame(level);
 				startGame();
