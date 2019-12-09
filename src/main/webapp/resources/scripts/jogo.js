@@ -286,15 +286,11 @@ const factoryGame = function() {
 		generateObstacles(0);
 		document.getElementById('gameOver').style.display = 'block';
 		//Salva os dados no banco
-		let data = new FormData();
-		data.append('player', 'wanderson');
-		data.append('pontosAtuais', current_score);
-
 		const oReq = new XMLHttpRequest();
 		oReq.open("post", "/atualiza-rank", true);
 		// Envia a informação do cabeçalho junto com a requisição.
 		oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		oReq.send(data);
+		oReq.send('player=wanderson&pontosAtuais='+current_score);
 		oReq.onload = function() {
 			console.log('salvou os pontos')
 		};
@@ -323,16 +319,15 @@ const factoryGame = function() {
 	}
 
 	async function changeLevel(level) {
-		//console.log(`changeLevel ${level}`);
 		return await new Promise(resolve => {
-			// Imprime na tela			
+			// Imprime na tela
 			document.getElementById('msgLevel').innerHTML = `LEVEL ${level}`;
 			document.getElementById('msgLevel').style.display = 'block';
 			player.await();
 
 			// Pausa o jogo até a mudança de nível
 			generateObstacles(0);
-			for (var i = 1; i < 99999; i++) {
+			for (let i = 1; i < 99999; i++) {
 				window.clearInterval(i);
 			}
 
@@ -345,19 +340,15 @@ const factoryGame = function() {
 			// Remove todos os obstáculos
 			const obstacle = factoryObstacle();
 			for (let i = 0; i < listObstacles.length; i++) {
-				obstacle.removeObstacle(`bloco${i}`);
+				obstacle.removeObstacle('bloco'+i);
 			}
 
 			//Salva os dados no banco
-			let data = new FormData();
-			data.append('player', 'wanderson');
-			data.append('pontosAtuais', current_score);
-			
 			const oReq = new XMLHttpRequest();
 			oReq.open("post", "/atualiza-rank", true);
 			// Envia a informação do cabeçalho junto com a requisição.
 			oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			oReq.send(data);
+			oReq.send('player=wanderson&pontosAtuais='+current_score);
 			oReq.onload = function() {
 				setTimeout(() => {
 					clearInterval(cron_piscar);
@@ -432,7 +423,7 @@ function keyDown(event) {
 
 function keyUp(event) {
 	
-	const keyPressed = event.key
+	const keyPressed = event.key;
 	
 	if (keyPressed === 'ArrowDown' || keyPressed === 's' || keyPressed === 'S') {
 		setTimeout(() => {

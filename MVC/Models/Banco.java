@@ -26,6 +26,7 @@ public class Banco {
 	}
 
 	public ArrayList<Player> buscarDadosBanco() throws IOException {
+		criarBanco();
 		ArrayList<Player> players = new ArrayList<Player>();
 
 		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
