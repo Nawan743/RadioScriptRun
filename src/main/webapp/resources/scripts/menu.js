@@ -9,7 +9,7 @@ function escolherNivel() {
 		form.setAttribute("id", "jogo");
 		form.setAttribute("action", "jogo");
 		form.setAttribute("method", "post");
-		document.getElementsByTagName("main")[0].appendChild(form);
+		document.querySelector("#botoes").appendChild(form);
 		inputFacil.setAttribute("type", "submit");
 		inputFacil.setAttribute("value", "☢️");
 		inputFacil.setAttribute("id", "facil");
@@ -31,7 +31,7 @@ function escolherNivel() {
 		document.getElementById("jogo").removeChild(inputFacil);
 		document.getElementById("jogo").removeChild(inputMedio);
 		document.getElementById("jogo").removeChild(inputDificil);
-		document.getElementsByTagName("main")[0].removeChild(form);
+		document.querySelector("#botoes").removeChild(form);
 		cont++;
 	}
 }

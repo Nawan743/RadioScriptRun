@@ -21,6 +21,7 @@ main {
     width: 50%;
     height: 75%;
     font-size: 1.6rem;
+    position: relative;
 }
 
 body {
@@ -36,7 +37,7 @@ body {
 
 input{
     text-align: center;
-    background-color: rgba(142, 170, 48,0.1);
+    background-color: rgba(142, 170, 48, 0.35);
     color: rgb(255, 251, 251, 0.8);
     text-shadow:1px 1px 2px grey;
     border: none;
@@ -45,7 +46,7 @@ input{
     height:145px;
     font-size:80px;
     cursor: pointer;
-    box-shadow:3px 3px 5px black;
+    box-shadow:0px 0px 10px 4px green;
 }
 
 header {
@@ -63,10 +64,9 @@ h1 {
 	margin: 20px 40px;
 }
 
-#logout-buttom {
-	background: url(https://myrealdomain.com/images/cara-feliz-e-triste-1.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
+#logout-buttom, #play {
+	color: yellow;
+	text-shadow: 2px 2px 4px black;
 }
 
 #facil, #medio, #dificil {
@@ -75,6 +75,13 @@ h1 {
 	margin: 10px;
 	width: 150px;
 }
+
 p{
 	color: white;
+}
+
+#botoes {
+	position: absolute;
+	width: 100%;
+	top: 30%;
 }
