@@ -309,16 +309,13 @@ const factoryGame = function() {
 	}
 
 	async function changeLevel(level) {
-		console.log(`changeLevel ${level}`);
+		//console.log(`changeLevel ${level}`);
 		return await new Promise(resolve => {
 			// Imprime na tela			
 			document.getElementById('msgLevel').innerHTML = `LEVEL ${level}`;
 			document.getElementById('msgLevel').style.display = 'block';
 			player.await();
-			//Salva os dados no banco
-			// implementar
-			
-			
+
 			// Pausa o jogo até a mudança de nível
 			generateObstacles(0);
 			for (var i = 1; i < 99999; i++) {
@@ -337,12 +334,22 @@ const factoryGame = function() {
 				obstacle.removeObstacle(`bloco${i}`);
 			}
 
-			setTimeout(() => {
-				clearInterval(cron_piscar);
-				document.getElementById('idBoneco').style.display = "block";
-				document.getElementById('msgLevel').style.display = 'none';
-				resolve(level);
-			}, 2000);
+			//Salva os dados no banco
+			let data = new FormData();
+			data.append('player', 'wanderson');
+			data.append('pontosAtuais', current_score);
+			
+			var oReq = new XMLHttpRequest();
+			oReq.open("post", "/atualiza-rank", true);
+			oReq.send(data);
+			oReq.onload = function() {
+				setTimeout(() => {
+					clearInterval(cron_piscar);
+					document.getElementById('idBoneco').style.display = "block";
+					document.getElementById('msgLevel').style.display = 'none';
+					resolve(level);
+				}, 2000);
+			};
 		});
 	}
 
