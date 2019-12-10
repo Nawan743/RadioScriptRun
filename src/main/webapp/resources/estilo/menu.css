@@ -73,11 +73,45 @@ h1 {
 	font-size: 35px;
 	padding: 0px;
 	margin: 20px 40px;
-	width: 20%;
+	width:20%;
+	position:absolute;
+	top:75%;
 }
 
 p{
 	color: white;
+}
+
+#levelFacil, #levelMedio, #levelDificil{
+	display:inline;
+	padding:10px;
+}
+
+label{
+	color:white;
+	font-size:1.6rem;
+	position: absolute;
+	top:150%;
+}
+
+#levelFacil label {
+	left:14%;
+}
+#levelMedio label {
+	left:46%;
+}
+#levelDificil label {
+	left:78%;
+}
+
+#facil{
+	left:2%;
+}
+#medio{
+	left:35%;
+}
+#dificil{
+	left:67%;
 }
 
 #botoes {
