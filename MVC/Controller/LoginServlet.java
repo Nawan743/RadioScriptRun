@@ -21,13 +21,12 @@ public class LoginServlet extends HttpServlet {
 		Banco banco = new Banco();
 		String player = req.getParameter("username");
 		String senha = req.getParameter("password");
-		RequestDispatcher dispatcher;
 		HttpSession sessao = req.getSession();
+		RequestDispatcher dispatcher;
 		
 		if (banco.playerExiste(player) && banco.senhaValida(player, senha)) {
-			sessao.setAttribute("playerLogado", player);
+			sessao.setAttribute("player", player);
 			dispatcher = req.getRequestDispatcher("/menu");
-			req.setAttribute("Player", player);
 			dispatcher.forward(req, resp);
 
 		} else {
@@ -43,11 +42,5 @@ public class LoginServlet extends HttpServlet {
 			dispatcher.forward(req, resp);
 		}
 	}
-
-//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-//		req.setAttribute("telaExibir", "login");
-//		dispatcher.forward(req, resp);
-//	}
 
 }

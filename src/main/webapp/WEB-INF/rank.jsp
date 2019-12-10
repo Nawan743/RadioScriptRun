@@ -52,7 +52,7 @@
 			<tr>
 				<th>N°</th>
 				<th>Player</th>
-				<th>Pontos</th>
+				<th>Distância</th>
 			</tr>
 			<%
 				int paradaRanking = (ranking.size() < 10) ? ranking.size() : 10;
@@ -68,7 +68,7 @@
 				}
 			%>
 		</table>
-		<form action="jogo">
+		<form action="menu">
 			<button type="submit">Voltar para o menu</button>
 		</form>
 	</main>

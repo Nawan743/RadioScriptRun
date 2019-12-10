@@ -21,6 +21,7 @@ main {
     width: 50%;
     height: 75%;
     font-size: 1.6rem;
+    position: relative;
 }
 
 body {
@@ -36,7 +37,7 @@ body {
 
 input{
     text-align: center;
-    background-color: rgba(142, 170, 48,0.1);
+    background-color: rgba(142, 170, 48, 0.35);
     color: rgb(255, 251, 251, 0.8);
     text-shadow:1px 1px 2px grey;
     border: none;
@@ -45,7 +46,7 @@ input{
     height:145px;
     font-size:80px;
     cursor: pointer;
-    box-shadow:3px 3px 5px black;
+    box-shadow:0px 0px 10px 4px green;
 }
 
 header {
@@ -57,18 +58,30 @@ h1 {
     margin: 0px 30px;
 }
 
-#jogar, #visualizarRanking{
+.menu-botao {
 	display: inline-block;
-	width: 150px;
+	width: 20%;
 	margin: 20px 40px;
 }
 
-#facil, #medio, #dificil {
-	font-size: 55px;
-	padding: 0px;
-	margin: 10px;
-	width: 150px;
+#logout-buttom, #play {
+	color: yellow;
+	text-shadow: 2px 2px 4px black;
 }
+
+#facil, #medio, #dificil {
+	font-size: 35px;
+	padding: 0px;
+	margin: 20px 40px;
+	width: 20%;
+}
+
 p{
 	color: white;
+}
+
+#botoes {
+	position: absolute;
+	width: 100%;
+	top: 20%;
 }
