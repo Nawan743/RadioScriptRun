@@ -52,7 +52,7 @@
 			<tr>
 				<th>N°</th>
 				<th>Player</th>
-				<th>Pontos</th>
+				<th>Distância</th>
 			</tr>
 			<%
 				int paradaRanking = (ranking.size() < 10) ? ranking.size() : 10;
