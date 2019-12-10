@@ -40,6 +40,18 @@ function escolherNivel() {
 		inputDificil.setAttribute("value", "☢️☢️☢️");
 		inputDificil.setAttribute("id", "dificil");
 		inputDificil.setAttribute("onclick", "level('dificil')");
+		if(pontuacao<200){
+			inputMedio.setAttribute("class", "bloqueado");
+			inputDificil.setAttribute("class", "bloqueado");
+		}
+		else if(pontuacao<500){
+			inputMedio.removeAttribute("class", "bloqueado");
+			inputDificil.setAttribute("class", "bloqueado");
+		}
+		else{
+			inputDificil.removeAttribute("class", "bloqueado");
+		}
+		
 		document.getElementById("levelFacil").appendChild(inputFacil);
 		document.getElementById("levelFacil").appendChild(labelFacil);
 		document.getElementById("levelMedio").appendChild(inputMedio);
