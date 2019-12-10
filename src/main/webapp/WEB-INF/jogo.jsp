@@ -37,6 +37,7 @@
     
     <div id="gameOver">GAME OVER</div>
     <div id="msgLevel"></div>
+    <div id="msgGeral"></div>
 
     <!-- JavaScript -->
     <script src="./resources/scripts/jogo.js"></script>

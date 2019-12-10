@@ -71,7 +71,7 @@ body{
     */
 }
 
-#gameOver, #msgLevel {
+#gameOver, #msgLevel, #msgGeral {
     font-size: 80px;
     position: fixed;
     top: 50%;
@@ -92,4 +92,12 @@ body{
 
 #msgLevel {
     color: green;
+}
+
+#msgGeral {
+	font-size:38px;
+	color: orange;
+	top: 385px;
+	width: 680px;
+	margin-left: -340px;
 }

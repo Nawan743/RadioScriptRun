@@ -19,7 +19,9 @@ function configLevelGame(level) {
 			],
 			speedJump: 600,
 			speedJumpUp: 15,
-			speedmoveObstacle: 5
+			speedmoveObstacle: 5,
+			distanceMoveObstacle:1,
+			multiplyGenerateObstacle:900
 		};
 	} else if (level == 2) {
 		return {
@@ -28,21 +30,26 @@ function configLevelGame(level) {
 				{src: 'monstro.gif', position: 'down'},
 				{src: 'barril.png', position: 'down'}
 			],
-			speedJump: 500,
-			speedJumpUp: 15,
-			speedmoveObstacle: 4
+			speedJump: 300,
+			speedJumpUp: 10,
+			speedmoveObstacle: 3,
+			distanceMoveObstacle:2,
+			multiplyGenerateObstacle:500
 		};
 	} else if (level == 3) {
 		return {
 			obstaculos: [
 				{src: 'passaro.gif', position: 'top'},
 				{src: 'passaro.gif', position: 'middle'},
+				{src: 'morcego.gif', position: 'middle'},
 				{src: 'monstro.gif', position: 'down'},
 				{src: 'barril.png', position: 'down'}
 			],
-			speedJump: 400,
-			speedJumpUp: 15,
-			speedmoveObstacle: 2
+			speedJump: 250,
+			speedJumpUp: 8,
+			speedmoveObstacle: 1,
+			distanceMoveObstacle:3,
+			multiplyGenerateObstacle:400
 		};
 	}
 }
@@ -245,7 +252,7 @@ const factoryObstacle = function() {
 	function moveObstacleLeft(id) {
 		//console.log(`moveObstacleLeft ${id}`)
 		const bloco = window.getComputedStyle(document.getElementById(id));
-		const posicaoBloco = (parseInt(bloco.left)-1);
+		const posicaoBloco = (parseInt(bloco.left)-levelConfig.distanceMoveObstacle);
 		document.getElementById(id).style.left = `${posicaoBloco}px`;
 		//console.log('move')
 		checkColision(id)
@@ -266,7 +273,8 @@ const factoryGame = function() {
 		startCurrentScore,
 		generateObstacles,
 		gameOver,
-		piscarElemento
+		piscarElemento,
+		callRanking
 	}
 
 	let cronCurrentScore;
@@ -277,12 +285,14 @@ const factoryGame = function() {
 			const obstacle = factoryObstacle();
 			obstacle.addObstacle(`bloco${id}`);
 			listObstacles[id] = obstacle.moveObstacle(`bloco${id}`);
-			setTimeout(generateObstacles,sortearNro(2,4)*1000,1,(id>9)?0:id+1);
+			setTimeout(generateObstacles,sortearNro(2,4)*levelConfig.multiplyGenerateObstacle,1,(id>9)?0:id+1);
 		}
 	}
 
 	function gameOver() {
 		//console.log('GAME OVER');
+		CtrlGameOver = true;
+		console.log(`CtrlGameOver ${CtrlGameOver}`);
 		generateObstacles(0);
 		document.getElementById('gameOver').style.display = 'block';
 		//Salva os dados no banco
@@ -293,6 +303,12 @@ const factoryGame = function() {
 		oReq.send('player=wanderson&pontosAtuais='+current_score);
 		oReq.onload = function() {
 			console.log('salvou os pontos')
+			// Exibe mensagem
+			document.getElementById('msgGeral').innerHTML = "Pressione <i>espaço</i> para continuar";
+			document.getElementById('msgGeral').style.display = "block";
+			cron_piscar = setInterval(() => {
+				piscarElemento('msgGeral');
+			}, 250);
 		};
 	}
 
@@ -378,14 +394,25 @@ const factoryGame = function() {
 	function sortearNro(a,b) {
 		return Math.round(Math.random()*(b-a))+a;
 	}
+	
+	function callRanking() {
+		location = '/rank';
+	}
 
 	return game;
 }
 
 let gameStarted = false;
+let CtrlGameOver = false;
 const game = factoryGame();
 const player = factoryPlayer();
 player.await();
+//Exibe mensagem
+document.getElementById('msgGeral').innerHTML = "Pressione <i>espaço</i> para começar";
+document.getElementById('msgGeral').style.display = "block";
+cron_piscar_inicial = setInterval(() => {
+	game.piscarElemento('msgGeral');
+}, 250);
 
 let listObstacles = [];
 
@@ -397,12 +424,12 @@ function startGame() {
 }
 
 function keyDown(event) {
-
+	console.log(`CtrlGameOver ${CtrlGameOver}`);
 	const keyPressed = event.key;
 
 	if (
 		(keyPressed === 'ArrowUp' || keyPressed === 'w' || keyPressed === 'W' || keyPressed === ' ')
-		&& gameStarted
+		&& gameStarted && CtrlGameOver === false
 		&& transition === false
 	) {
 		player.jump();
@@ -410,14 +437,21 @@ function keyDown(event) {
 
 	if (
 		(keyPressed === 'ArrowDown' || keyPressed === 's' || keyPressed === 'S')
-		&& gameStarted
+		&& gameStarted && CtrlGameOver === false
 		&& transition === false
 	) {
 		player.turnDown();
 	}
-
-	if (!gameStarted) {
+	
+	// Começa o jogo
+	if (keyPressed === ' ' && gameStarted === false && CtrlGameOver === false) {
+		clearInterval(cron_piscar_inicial);
 		startGame();
+	}
+
+	// Encerra o jogo
+	if (keyPressed === ' ' && gameStarted && CtrlGameOver) {
+		game.callRanking();
 	}
 }
 
@@ -425,7 +459,10 @@ function keyUp(event) {
 	
 	const keyPressed = event.key;
 	
-	if (keyPressed === 'ArrowDown' || keyPressed === 's' || keyPressed === 'S') {
+	if (
+		(keyPressed === 'ArrowDown' || keyPressed === 's' || keyPressed === 'S')
+		&& gameStarted && CtrlGameOver === false
+	) {
 		setTimeout(() => {
 			player.run();
 		}, 200);
