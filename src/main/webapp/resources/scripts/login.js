@@ -7,7 +7,7 @@ function validaLogin(){
         entrar.disabled;
         alert("Usuário e/ou senha inválido.");
     } else {
-    	localStorage.setItem("usuario", user)
+    	localStorage.setItem("usuario", user.value)
     }
 }
 
