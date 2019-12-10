@@ -76,7 +76,7 @@
 					}
 				%>
 				</div>
-				<input type="button" value="Jogar" id="submit-jogar" onclick="validaLogin()">
+				<input type="button" value="Entrar" id="submit-jogar" onclick="validaLogin()">
 				<input type="reset" value="Limpar"> <input type="button"
 					value="Visualizar Ranking 🏆" onclick="verRank()">
 			</form>

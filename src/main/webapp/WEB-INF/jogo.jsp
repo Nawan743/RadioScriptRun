@@ -39,7 +39,7 @@
         <div class="boxBoneco" id="idBoneco"></div>
     </div>
     
-    <div id="gameOver">GAME OVER</div>
+    <div id="gameOver"><span>GAME OVER</span></div>
     <div id="msgLevel"></div>
     <div id="msgGeral"></div>
 
