@@ -56,7 +56,7 @@ public class Banco {
 		}
 		writer.close();
 
-		//S3.salvarDadosBanco(banco);
+		// S3.salvarDadosBanco(banco);
 	}
 
 	public void registraPlayer(Player p) throws IOException {
@@ -91,6 +91,16 @@ public class Banco {
 			}
 		}
 		return encontrou;
+	}
+
+	public Integer pegaRank(String player) throws IOException {
+		ArrayList<Player> players = buscarDadosBanco();
+		for (int i = 0; i < players.size(); i++) {
+			if (players.get(i).getNome().equalsIgnoreCase(player)) {
+				return players.get(i).getRank();
+			}
+		}
+		return 0;
 	}
 
 	public boolean editarRank(Player player) throws IOException {

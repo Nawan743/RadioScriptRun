@@ -3,7 +3,14 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ page import="Models.Player"%>
+<%@ page import="Models.*"%>
+
+<%
+	String jogador = (String) session.getAttribute("player");
+
+	Banco banco = new Banco();
+	Integer pontuacao = banco.pegaRank(jogador);
+%>
 
 <!DOCTYPE html>
 <html>
@@ -30,13 +37,13 @@
 	type="text/css">
 
 <!-- JavaScript -->
+<script>
+	let pontuacao = <%=pontuacao%>;
+</script>
 <script src="./resources/scripts/menu.js"></script>
 </head>
 
 <body>
-	<%
-		String jogador = (String) session.getAttribute("player");
-	%>
 
 	<c:import url="audio.jsp"></c:import>
 	<main>
