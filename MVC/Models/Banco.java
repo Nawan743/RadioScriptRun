@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Banco {
 
 	/*
-	 * public ArrayList<Player> buscarDadosBanco2() { ArrayList<Player> players =
+	 * public ArrayList<Player> buscarDadosBanco() { ArrayList<Player> players =
 	 * S3.buscarDadosBanco(); return players; }
 	 */
 
@@ -110,19 +110,13 @@ public class Banco {
 	}
 
 	public Player instanciaPlayer(String nomePlayer) throws IOException {
-		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
-		String linha = null;
-		System.out.println(nomePlayer);
-
-		while ((linha = lineCounter.readLine()) != null) {
-			System.out.println(linha);
-			if (!linha.isEmpty() && linha != "" && linha.contains(nomePlayer)) {
-				String[] info = linha.trim().split(";");
-				return new Player(info[0], info[1], info[2], Integer.parseInt(info[3]));
+		ArrayList<Player> players = buscarDadosBanco();
+		for (int i = 0; i < players.size(); i++) {
+			if (players.get(i).getNome().equalsIgnoreCase(nomePlayer)) {
+				return players.get(i);
 			}
 		}
 
-		lineCounter.close();
 		return null;
 
 	}
