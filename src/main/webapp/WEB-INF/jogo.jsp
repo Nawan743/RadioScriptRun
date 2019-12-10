@@ -32,7 +32,7 @@
     		<span>RECORDE</span> <span class="score_label" id="record_score_label"><%=recorde%></span>
     	</div>
     	<div id="current_score">
-    		<span>PONTUAÇÃO</span> <span class="score_label" id="current_score_label">00000</span>
+    		<span>DISTÂNCIA</span> <span class="score_label" id="current_score_label">00000</span>
     	</div>
     </div>
     <div id="caixaBlocos">

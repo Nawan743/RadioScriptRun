@@ -17,6 +17,7 @@ function configLevelGame(level) {
 				{src: 'passaro.gif', position: 'top'},
 				{src: 'barril.png', position: 'down'}
 			],
+			speedScore:300,
 			speedJump: 600,
 			speedJumpUp: 15,
 			speedmoveObstacle: 5,
@@ -30,7 +31,8 @@ function configLevelGame(level) {
 				{src: 'monstro.gif', position: 'down'},
 				{src: 'barril.png', position: 'down'}
 			],
-			speedJump: 300,
+			speedScore:200,
+			speedJump: 250,
 			speedJumpUp: 10,
 			speedmoveObstacle: 3,
 			distanceMoveObstacle:2,
@@ -45,8 +47,9 @@ function configLevelGame(level) {
 				{src: 'monstro.gif', position: 'down'},
 				{src: 'barril.png', position: 'down'}
 			],
+			speedScore:140,
 			speedJump: 250,
-			speedJumpUp: 8,
+			speedJumpUp: 7,
 			speedmoveObstacle: 1,
 			distanceMoveObstacle:3,
 			multiplyGenerateObstacle:400
@@ -313,7 +316,7 @@ const factoryGame = function() {
 	}
 
 	function startCurrentScore() {
-		cronCurrentScore = setInterval(updateScore, 100);
+		cronCurrentScore = setInterval(updateScore, levelConfig.speedScore);
 	}
 
 	function updateScore() {

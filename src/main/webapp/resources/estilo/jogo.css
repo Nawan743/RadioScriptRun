@@ -5,10 +5,10 @@ body{
 }
 
 #topo {
+	/*border: 1px solid orange;*/
 	margin: auto;
 	width: 70%;
 	color: white;
-	border: 1px solid orange;
 	font-size: 14px;
 }
 
