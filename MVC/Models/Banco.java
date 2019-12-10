@@ -9,12 +9,9 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
 
-public class Banco {
+import services.S3;
 
-	/*
-	 * public ArrayList<Player> buscarDadosBanco() { ArrayList<Player> players =
-	 * S3.buscarDadosBanco(); return players; }
-	 */
+public class Banco {
 
 	private LineNumberReader lineCounter;
 
@@ -23,6 +20,11 @@ public class Banco {
 		if (!banco.exists()) {
 			banco.createNewFile();
 		}
+	}
+
+	public ArrayList<Player> buscarDadosBanco2() {
+		ArrayList<Player> players = S3.buscarDadosBanco();
+		return players;
 	}
 
 	public ArrayList<Player> buscarDadosBanco() throws IOException {
@@ -54,7 +56,7 @@ public class Banco {
 		}
 		writer.close();
 
-		// S3.salvarDadosBanco(banco);
+		//S3.salvarDadosBanco(banco);
 	}
 
 	public void registraPlayer(Player p) throws IOException {
