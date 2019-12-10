@@ -8,6 +8,10 @@
 	String infoLogin = (String) (request.getAttribute("infoLogin"));
 	String infoCadastro = (String) (request.getAttribute("infoCadastro"));
 	String telaExibir = (String) (request.getAttribute("telaExibir"));
+
+	if (((String) session.getAttribute("player")) != null) {
+		response.sendRedirect("menu");
+	}
 %>
 
 <!DOCTYPE html>
