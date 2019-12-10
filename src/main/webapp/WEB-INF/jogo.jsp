@@ -2,7 +2,11 @@
 	pageEncoding="UTF-8"%>
 	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%
+	String recorde = (String)String.valueOf(request.getAttribute("record"));
+%>
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +29,7 @@
     <c:import url="audio.jsp"></c:import>
     <div id="topo">
     	<div id="record_score">
-    		<span>RECORDE</span> <span class="score_label" id="record_score_label">451351</span>
+    		<span>RECORDE</span> <span class="score_label" id="record_score_label"><%=recorde%></span>
     	</div>
     	<div id="current_score">
     		<span>PONTUAÇÃO</span> <span class="score_label" id="current_score_label">00000</span>
