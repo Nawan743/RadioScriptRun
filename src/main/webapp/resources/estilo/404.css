@@ -1,5 +1,6 @@
 main {
 	position: relative;
+	background-image: url("../images/404.jpg");
 }
 
 footer {
@@ -11,4 +12,8 @@ footer {
 h3 {
 	color: white;
 	text-shadow: 2px 2px 5px black;
+}
+
+button {
+	box-shadow: 0px 0px 5px 3px white;
 }
