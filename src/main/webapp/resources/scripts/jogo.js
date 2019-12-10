@@ -304,7 +304,7 @@ const factoryGame = function() {
 		oReq.onload = function() {
 			console.log('salvou os pontos')
 			// Exibe mensagem
-			document.getElementById('msgGeral').innerHTML = "Pressione <i>espaço</i> para continuar";
+			document.getElementById('msgGeral').innerHTML = "Pressione <i>espaço</i> para visualizar o ranking";
 			document.getElementById('msgGeral').style.display = "block";
 			cron_piscar = setInterval(() => {
 				piscarElemento('msgGeral');
@@ -442,10 +442,11 @@ function keyDown(event) {
 	) {
 		player.turnDown();
 	}
-	
+
 	// Começa o jogo
 	if (keyPressed === ' ' && gameStarted === false && CtrlGameOver === false) {
 		clearInterval(cron_piscar_inicial);
+		document.getElementById('msgGeral').style.display = "none";
 		startGame();
 	}
 

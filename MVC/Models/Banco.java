@@ -36,25 +36,13 @@ public class Banco {
 			if (!nextLine.isEmpty() && nextLine != "") {
 				String[] info = nextLine.trim().split(";");
 				Player player = new Player(info[0].trim(), info[1].trim(), info[2].trim(),
-				Integer.parseInt(info[3].trim()));
+						Integer.parseInt(info[3].trim()));
 				players.add(player);
 			}
 		}
 		lineCounter.close();
 		return players;
 	}
-
-	/*
-	 * public void enviarDadosBanco(ArrayList<Player> players) throws IOException {
-	 * File banco = new File("banco.txt"); BufferedWriter writer = new
-	 * BufferedWriter(new FileWriter(banco, false));
-	 * 
-	 * for (int i = 0; i < players.size(); i++) {
-	 * writer.append(players.get(i).toString()); writer.newLine();
-	 * System.out.println(players.get(i)); } writer.close();
-	 * 
-	 * S3.salvarDadosBanco(banco); }
-	 */
 
 	public void enviarDadosBanco(ArrayList<Player> players) throws IOException {
 		File banco = new File("banco.txt");
@@ -63,7 +51,6 @@ public class Banco {
 		for (int i = 0; i < players.size(); i++) {
 			writer.append(players.get(i).toString());
 			writer.newLine();
-			// System.out.println(players.get(i));
 		}
 		writer.close();
 
@@ -104,35 +91,22 @@ public class Banco {
 		return encontrou;
 	}
 
-	public boolean editarRank(Player player, Integer novaPontuacao) {
-		try {
-			player.setRank(novaPontuacao);
-			String contatos = "";
-			lineCounter = new LineNumberReader(
-					new InputStreamReader(new FileInputStream("banco.txt")));
-			String linha = "";
+	public boolean editarRank(Player player) throws IOException {
 
-			while ((linha = lineCounter.readLine()) != null) {
-				if (!linha.isEmpty() && linha != "")
-					contatos += "\n";
-				if (!linha.contains(player.getNome())) {
-					contatos += linha;
-				} else {
-					contatos += (player.toString());
-				}
+		ArrayList<Player> players = buscarDadosBanco();
+
+		for (int i = 0; i < players.size(); i++) {
+			if (players.get(i).getNome().equalsIgnoreCase(player.getNome())
+					&& players.get(i).getRank() < player.getRank()) {
+				Player player_aux = players.get(i);
+				player_aux.setRank(player.getRank());
+				players.set(i, player_aux);
+				break;
 			}
-
-			BufferedWriter writer = new BufferedWriter(new FileWriter("banco.txt", false));
-			writer.append(contatos);
-			writer.close();
-			lineCounter.close();
-
-			return true;
-
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
 		}
+
+		enviarDadosBanco(players);
+		return true;
 	}
 
 	public Player instanciaPlayer(String nomePlayer) throws IOException {

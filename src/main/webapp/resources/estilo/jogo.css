@@ -88,6 +88,7 @@ body{
 
 #gameOver {
     color: yellowgreen;
+    top: 40%;
 }
 
 #msgLevel {

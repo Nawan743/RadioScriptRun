@@ -27,11 +27,12 @@ public class AtualizaRankServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		Player player = banco.instanciaPlayer(request.getParameter("player"));
 		Integer novaPontuacao = Integer.parseInt((String) request.getParameter("pontosAtuais"));
-		banco.criarBanco();
+
+		player.setRank(novaPontuacao);
 
 		String retorno;
 
-		if (banco.editarRank(player, novaPontuacao)) {
+		if (banco.editarRank(player)) {
 			retorno = "{\"retorno\": \"sucesso\"}";
 		} else {
 			retorno = "{\"retorno\": \"falha\"}";
