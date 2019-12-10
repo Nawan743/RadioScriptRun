@@ -303,7 +303,7 @@ const factoryGame = function() {
 		oReq.open("post", "/atualiza-rank", true);
 		// Envia a informação do cabeçalho junto com a requisição.
 		oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		oReq.send('player=wanderson&pontosAtuais='+current_score);
+		oReq.send('player='+namePlayer+'&pontosAtuais='+current_score);
 		oReq.onload = function() {
 			console.log('salvou os pontos')
 			// Exibe mensagem
@@ -367,7 +367,7 @@ const factoryGame = function() {
 			oReq.open("post", "/atualiza-rank", true);
 			// Envia a informação do cabeçalho junto com a requisição.
 			oReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			oReq.send('player=wanderson&pontosAtuais='+current_score);
+			oReq.send('player='+namePlayer+'&pontosAtuais='+current_score);
 			oReq.onload = function() {
 				setTimeout(() => {
 					clearInterval(cron_piscar);
@@ -405,6 +405,7 @@ const factoryGame = function() {
 	return game;
 }
 
+let namePlayer = localStorage.getItem('usuario');
 let gameStarted = false;
 let CtrlGameOver = false;
 const game = factoryGame();

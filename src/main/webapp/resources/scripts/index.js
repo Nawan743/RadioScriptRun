@@ -21,6 +21,7 @@ function validaLogin() {
 		else
 			document.querySelector('#info-login').innerHTML = 'Favor preencher o campo "Senha"!';
 	} else {
+		localStorage.setItem("usuario", user.value);
 		document.querySelector('#form-login').submit();
 	}
 }
