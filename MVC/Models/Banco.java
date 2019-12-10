@@ -9,42 +9,40 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
 
-import services.S3;
-
 public class Banco {
 
-	private LineNumberReader lineCounter;
-
-	public void criarBanco() throws IOException {
-		File banco = new File("banco.txt");
-		if (!banco.exists()) {
-			banco.createNewFile();
-		}
-	}
-
-	public ArrayList<Player> buscarDadosBanco2() {
-		ArrayList<Player> players = S3.buscarDadosBanco();
-		return players;
-	}
+	/*
+	 * public ArrayList<Player> buscarDadosBanco2() { ArrayList<Player> players =
+	 * S3.buscarDadosBanco(); return players; }
+	 */
 
 	public ArrayList<Player> buscarDadosBanco() throws IOException {
-		criarBanco();
 		ArrayList<Player> players = new ArrayList<Player>();
 
-		lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
+		LineNumberReader lineCounter = new LineNumberReader(new InputStreamReader(new FileInputStream("banco.txt")));
 		String nextLine = null;
 
 		while ((nextLine = lineCounter.readLine()) != null) {
-			if (!nextLine.isEmpty() && nextLine != "") {
-				String[] info = nextLine.trim().split(";");
-				Player player = new Player(info[0].trim(), info[1].trim(), info[2].trim(),
-						Integer.parseInt(info[3].trim()));
-				players.add(player);
-			}
+			String[] info = nextLine.trim().split(";");
+			Player player = new Player(info[0].trim(), info[1].trim(), info[2].trim(),
+					Integer.parseInt(info[3].trim()));
+			players.add(player);
 		}
 		lineCounter.close();
 		return players;
 	}
+
+	/*
+	 * public void enviarDadosBanco(ArrayList<Player> players) throws IOException {
+	 * File banco = new File("banco.txt"); BufferedWriter writer = new
+	 * BufferedWriter(new FileWriter(banco, false));
+	 * 
+	 * for (int i = 0; i < players.size(); i++) {
+	 * writer.append(players.get(i).toString()); writer.newLine();
+	 * System.out.println(players.get(i)); } writer.close();
+	 * 
+	 * S3.salvarDadosBanco(banco); }
+	 */
 
 	public void enviarDadosBanco(ArrayList<Player> players) throws IOException {
 		File banco = new File("banco.txt");
@@ -53,19 +51,17 @@ public class Banco {
 		for (int i = 0; i < players.size(); i++) {
 			writer.append(players.get(i).toString());
 			writer.newLine();
+			// System.out.println(players.get(i));
 		}
 		writer.close();
 
-		//S3.salvarDadosBanco(banco);
+		// S3.salvarDadosBanco(banco);
 	}
 
 	public void registraPlayer(Player p) throws IOException {
-		criarBanco();
 		ArrayList<Player> players = buscarDadosBanco();
 		players.add(p);
 		enviarDadosBanco(players);
-		Email enviaEmail = new Email();
-		enviaEmail.enviaEmailBoasVindas(p);
 	}
 
 	public boolean playerExiste(String playerValidar) throws IOException {
@@ -91,36 +87,6 @@ public class Banco {
 			}
 		}
 		return encontrou;
-	}
-
-	public boolean editarRank(Player player) throws IOException {
-
-		ArrayList<Player> players = buscarDadosBanco();
-
-		for (int i = 0; i < players.size(); i++) {
-			if (players.get(i).getNome().equalsIgnoreCase(player.getNome())
-					&& players.get(i).getRank() < player.getRank()) {
-				Player player_aux = players.get(i);
-				player_aux.setRank(player.getRank());
-				players.set(i, player_aux);
-				break;
-			}
-		}
-
-		enviarDadosBanco(players);
-		return true;
-	}
-
-	public Player instanciaPlayer(String nomePlayer) throws IOException {
-		ArrayList<Player> players = buscarDadosBanco();
-		for (int i = 0; i < players.size(); i++) {
-			if (players.get(i).getNome().equalsIgnoreCase(nomePlayer)) {
-				return players.get(i);
-			}
-		}
-
-		return null;
-
 	}
 
 }

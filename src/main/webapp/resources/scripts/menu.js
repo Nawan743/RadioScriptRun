@@ -8,20 +8,17 @@ function escolherNivel() {
 	if (cont % 2 == 0) {
 		form.setAttribute("id", "jogo");
 		form.setAttribute("action", "jogo");
-		form.setAttribute("method", "post");
-		document.querySelector("#botoes").appendChild(form);
+		form.setAttribute("method", "POST");
+		document.getElementsByTagName("main")[0].appendChild(form);
 		inputFacil.setAttribute("type", "submit");
-		inputFacil.setAttribute("value", "☢️");
+		inputFacil.setAttribute("value", "★");
 		inputFacil.setAttribute("id", "facil");
-		inputFacil.setAttribute("onclick", "level('facil')");
 		inputMedio.setAttribute("type", "submit");
-		inputMedio.setAttribute("value", "☢️☢️");
-		inputMedio.setAttribute("id", "medio");
-		inputMedio.setAttribute("onclick", "level('medio')");
+		inputMedio.setAttribute("value", "★★");
+		inputMedio.setAttribute("id", "medio")
 		inputDificil.setAttribute("type", "submit");
-		inputDificil.setAttribute("value", "☢️☢️☢️");
+		inputDificil.setAttribute("value", "★★★");
 		inputDificil.setAttribute("id", "dificil");
-		inputDificil.setAttribute("onclick", "level('dificil')");
 		document.getElementById("jogo").appendChild(inputFacil);
 		document.getElementById("jogo").appendChild(inputMedio);
 		document.getElementById("jogo").appendChild(inputDificil);
@@ -31,7 +28,7 @@ function escolherNivel() {
 		document.getElementById("jogo").removeChild(inputFacil);
 		document.getElementById("jogo").removeChild(inputMedio);
 		document.getElementById("jogo").removeChild(inputDificil);
-		document.querySelector("#botoes").removeChild(form);
+		document.getElementsByTagName("main")[0].removeChild(form);
 		cont++;
 	}
 }
@@ -39,9 +36,3 @@ function escolherNivel() {
 function verRank() {
 	window.location.href = "rank";
 }
-
-function logout() {
-	window.location.href = "/logout";
-}
-
-const level = id => localStorage.setItem("level", id);

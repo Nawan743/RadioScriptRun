@@ -2,11 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-	String recorde = (String)String.valueOf(request.getAttribute("record"));
-%>
-<!DOCTYPE html>
-<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,29 +17,16 @@
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-    <!-- <link rel="stylesheet" href="./resources/estilo/menu.css" type="text/css"> -->
+    <link rel="stylesheet" href="./resources/estilo/menu.css" type="text/css">
     <link rel="stylesheet" href="./resources/estilo/jogo.css" type="text/css">
-
-</head>
-<body>
-    <c:import url="audio.jsp"></c:import>
-    <div id="topo">
-    	<div id="record_score">
-    		<span>RECORDE</span> <span class="score_label" id="record_score_label"><%=recorde%></span>
-    	</div>
-    	<div id="current_score">
-    		<span>DISTÂNCIA</span> <span class="score_label" id="current_score_label">00000</span>
-    	</div>
-    </div>
-    <div id="caixaBlocos">
-        <div class="boxBoneco" id="idBoneco"></div>
-    </div>
-    
-    <div id="gameOver">GAME OVER</div>
-    <div id="msgLevel"></div>
-    <div id="msgGeral"></div>
 
     <!-- JavaScript -->
     <script src="./resources/scripts/jogo.js"></script>
+</head>
+<body>
+    <c:import url="audio.jsp"></c:import>
+    <div id="caixaBlocos">
+        <div class="boxBoneco" id="idBoneco"></div>
+    </div>
 </body>
 </html>
