@@ -80,6 +80,7 @@
 				<input type="reset" value="Limpar"> <input type="button"
 					value="Visualizar Ranking 🏆" onclick="verRank()">
 			</form>
+				<button onclick="verCreditos()">Créditos</button>
 		</div>
 		<div id="cadastro" style="display: none;">
 			<form action="cadastrar" method="POST" class="login" id="form-cadastro">
