@@ -26,8 +26,8 @@
 </head>
 <body>
 	<c:import url="audio.jsp"></c:import>
-	<img alt="logo-equipe" src="/resources/images/logoEquipe.png">
-	<img alt="logo-jogo" src="/resources/images/logo.png">
+	<img id="logoEquipe" alt="logo-equipe" src="/resources/images/logoEquipe.png">
+	<img id="logo" alt="logo-jogo" src="/resources/images/logo.png">
 	<main class="col-6">
         <h3>Desenvolvedores:</h3>
         <ul>
@@ -43,7 +43,7 @@
         </ul>
 	</main>
 	<main class="col-6">
-        <p>Este jogo foi desenvolvido durante o Projeto Integrador, matéria do 2º período do curso de Tecnologia em Sistemas para Internet do IFTM, inspirado no "Chrome Dino" (ou "Jogo do
+        <p>Este jogo foi desenvolvido durante o Projeto Integrador II, matéria do 2º período do curso de Tecnologia em Sistemas para Internet do IFTM, inspirado no "Chrome Dino" (ou "Jogo do
             Dinossauro"), com um tema baseado no acidente nuclear de Chernobyl, acontecido entre dia 25 e 26 de abril de 1986. 
         </p>
         <form action="/">
