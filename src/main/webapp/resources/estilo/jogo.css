@@ -21,6 +21,7 @@ body{
 
 #record_score, #current_score, #nome_player {
 	display: inline-block;
+	font-family: https://fonts.google.com/specimen/Lilita+One;
 }
 
 #record_score {
@@ -90,7 +91,7 @@ body{
 }
 
 #gameOver {
-    color: yellowgreen;
+    color: red;
     top: 30%;
 }
 #gameOver span {
