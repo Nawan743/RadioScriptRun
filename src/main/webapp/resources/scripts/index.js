@@ -125,3 +125,5 @@ function verificaMsgLogin(id) {
 	if (document.querySelector('#'+id).innerText != "Player cadastrado com sucesso!")
 		document.querySelector('#'+id).style.color = "red";
 }
+
+function verCreditos() {window.location.href = "creditos"}
