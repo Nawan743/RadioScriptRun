@@ -19,6 +19,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lilita+One&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <!-- <link rel="stylesheet" href="./resources/estilo/menu.css" type="text/css"> -->
