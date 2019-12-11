@@ -42,6 +42,23 @@
     <div id="gameOver"><span>GAME OVER</span></div>
     <div id="msgLevel"></div>
     <div id="msgGeral"></div>
+    <div id="tutorial">
+    	<table>
+                <tr class="title">
+                    <th colspan="2"> <h1>Tutorial:</h1></th>
+                </tr>
+                <tr class="corpo">
+                    <td><img src="img/key-w.png" alt=""><img src="img/keyboard-key-arrow-up.png" alt=""><img src="img/space.png" alt=""></td>
+                    <td><p> - Pular</p></td>
+                </tr>
+                <tr class="corpo">
+                    <td><img src="img/key-s.png" alt=""><img src="img/arrow-down.png" alt=""></td>
+                    <td><p> - Agaixar</p></td>
+                </tr>
+            </table>
+    </div>
+ 
+    </div>
 
     <!-- JavaScript -->
     <script src="./resources/scripts/jogo.js"></script>
