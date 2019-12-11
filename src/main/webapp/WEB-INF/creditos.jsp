@@ -29,7 +29,7 @@
 	<main class="col-6">
         <h3>Desenvolvedores:</h3>
         <ul>
-            <li>Gledson Rodrigues de Oliveira Júnior</li>
+            <li>Gledson Rodrigues de Oliveira Junior</li>
             <li>Nawan Soares Novais</li>
             <li>Wanderson Gutemberg Teotônio Silva</li>
             <li>Yure Alexandre Soares</li>
