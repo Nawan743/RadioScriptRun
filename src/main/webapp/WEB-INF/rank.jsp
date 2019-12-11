@@ -8,6 +8,7 @@
 
 <%
 	ArrayList<Player> ranking = (ArrayList<Player>) (request.getAttribute("ranking"));
+	String player = (String) session.getAttribute("player");
 %>
 <!DOCTYPE html>
 <html>
@@ -56,6 +57,15 @@
 			<%
 				int paradaRanking = (ranking.size() < 10) ? ranking.size() : 10;
 					for (int i = 0; i < paradaRanking; i++) {
+						if (ranking.get(i).getNome().equalsIgnoreCase(player)) {
+			%>
+			<tr id="rank-player">
+				<td><%=(i + 1)%></td>
+				<td><%=ranking.get(i).getNome()%></td>
+				<td><%=ranking.get(i).getRank()%></td>
+			</tr>
+			<%
+				} else {
 			%>
 			<tr>
 				<td><%=(i + 1)%></td>
@@ -64,9 +74,8 @@
 			</tr>
 			<%
 				}
+					}
 				}
-
-				String player = (String) session.getAttribute("player");
 				Integer posicao = 1;
 				if (ValidaSessao.estaValidado(session)) {
 					for (int i = 0; i < ranking.size(); i++) {
@@ -84,7 +93,7 @@
 				<td><%=ranking.get(posicao).getRank()%></td>
 			</tr>
 			<%
-					}
+				}
 				}
 			%>
 		</table>
