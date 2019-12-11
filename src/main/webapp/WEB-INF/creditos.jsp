@@ -37,10 +37,10 @@
             <li>Yure Alexandre Soares</li>
         </ul>
 
-        <h3 class="espaco">Criador de Artes:</h3>
+        <!--<h3 class="espaco">Criador de Artes:</h3>
         <ul>
             <li>Marcos Vinicius de Oliveira</li>
-        </ul>
+        </ul> -->
 	</main>
 	<main class="col-6">
         <p>Este jogo foi desenvolvido durante o Projeto Integrador II, matéria do 2º período do curso de Tecnologia em Sistemas para Internet do IFTM, inspirado no "Chrome Dino" (ou "Jogo do
