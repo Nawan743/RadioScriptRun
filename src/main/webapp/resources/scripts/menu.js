@@ -97,6 +97,7 @@ function escolherNivel() {
 		document.getElementById("jogo").removeChild(divMedio);
 		document.getElementById("jogo").removeChild(divDificil);
 		document.querySelector("#botoes").removeChild(form);
+		document.getElementById("botoes").removeChild(p);
 		cont++;
 	}
 }
