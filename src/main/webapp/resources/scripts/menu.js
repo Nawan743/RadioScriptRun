@@ -1,3 +1,11 @@
+let mensagem = "";
+
+if (pontuacao < 200) {
+	mensagem = "Para jogar nos níveis \"Médio\" e \"Difícil\ você precisa completar o nível \"Fácil\"";
+} else if (pontuacao < 500) {
+	mensagem = "Para jogar no nível \"Difícil\ você precisa completar o nível \"Médio\"";
+}
+
 let cont = 0;
 let form = document.createElement("form");
 let divFacil = document.createElement("div");
@@ -42,13 +50,32 @@ function escolherNivel() {
 		inputDificil.setAttribute("onclick", "level('dificil')");
 		if(pontuacao<200){
 			inputMedio.setAttribute("class", "bloqueado");
+			inputMedio.removeAttribute("onclick");
+			inputMedio.removeAttribute("value");
+			inputMedio.removeAttribute("type");
+			inputMedio.setAttribute("type", "button");
+			inputMedio.setAttribute("value", "🔒🔒")
 			inputDificil.setAttribute("class", "bloqueado");
+			inputDificil.removeAttribute("onclick");
+			inputDificil.removeAttribute("value");
+			inputDificil.setAttribute("value", "🔒🔒🔒");
+			inputDificil.removeAttribute("type");
+			inputDificil.setAttribute("type", "button");
 		}
 		else if(pontuacao<500){
+			inputMedio.setAttribute("value", "☢️☢️");
+			inputMedio.setAttribute("onclick", "level('medio')");
+			inputMedio.setAttribute("type", "submit");
 			inputMedio.removeAttribute("class", "bloqueado");
 			inputDificil.setAttribute("class", "bloqueado");
+			inputDificil.removeAttribute("onclick");
+			inputDificil.removeAttribute("value");
+			inputDificil.setAttribute("value", "🔒🔒🔒")
 		}
-		else{
+		else {
+			inputDificil.setAttribute("value", "☢️☢️☢️");
+			inputDificil.setAttribute("onclick", "level('dificil')");
+			inputDificil.setAttribute("type", "submit");
 			inputDificil.removeAttribute("class", "bloqueado");
 		}
 		

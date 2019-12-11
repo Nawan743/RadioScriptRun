@@ -124,3 +124,7 @@ label{
 	width: 100%;
 	top: 20%;
 }
+
+.bloqueado {
+	filter: grayscale(100%);
+}
