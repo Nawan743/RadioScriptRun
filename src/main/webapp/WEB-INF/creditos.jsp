@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,7 @@
 	type="text/css">
 </head>
 <body>
+	<c:import url="audio.jsp"></c:import>
 	<h1>Chernobyl Studios Features:</h1>
     <h2>RadioScript Run</h2>
 	<main class="col-6">
