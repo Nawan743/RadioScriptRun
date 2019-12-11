@@ -41,8 +41,8 @@
         </ul>
 	</main>
 	<main class="col-6">
-        <p>Este jogo foi desenvolvido durante o Projeto Integrador do 2º período do curso de Sistemas para Internet, inspirado no Jogo do
-            Dinossauro, com um tema baseado no acidente de Chernobyl, acontecido entre dia 25 e 26 de abril de 1986. 
+        <p>Este jogo foi desenvolvido durante o Projeto Integrador, matéria do 2º período do curso de Tecnologia em Sistemas para Internet do IFTM, inspirado no "Chrome Dino" (ou "Jogo do
+            Dinossauro"), com um tema baseado no acidente nuclear de Chernobyl, acontecido entre dia 25 e 26 de abril de 1986. 
         </p>
         <form action="/">
         	<input type="submit" value="Voltar para login" />
