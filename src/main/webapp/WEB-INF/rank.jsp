@@ -28,12 +28,6 @@
 <!-- CSS -->
 <link rel="stylesheet" href="./resources/estilo/rank.css"
 	type="text/css">
-<style>
-#rank-player {
-	background-color: black;
-	color: yellow;
-}
-</style>
 </head>
 <body>
 	<c:import url="audio.jsp"></c:import>
