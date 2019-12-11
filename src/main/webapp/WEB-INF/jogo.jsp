@@ -48,11 +48,11 @@
                     <th colspan="2"> <h1>Tutorial:</h1></th>
                 </tr>
                 <tr class="corpo">
-                    <td><img src="img/key-w.png" alt=""><img src="img/keyboard-key-arrow-up.png" alt=""><img src="img/space.png" alt=""></td>
+                    <td><img src="../images/key-w.png" alt=""><img src="../images/keyboard-key-arrow-up.png" alt=""><img src="../images/space.png" alt=""></td>
                     <td><p> - Pular</p></td>
                 </tr>
                 <tr class="corpo">
-                    <td><img src="img/key-s.png" alt=""><img src="img/arrow-down.png" alt=""></td>
+                    <td><img src="../images/key-s.png" alt=""><img src="../images/arrow-down.png" alt=""></td>
                     <td><p> - Agaixar</p></td>
                 </tr>
             </table>
