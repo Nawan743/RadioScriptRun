@@ -17,6 +17,7 @@ let labelDificil = document.createElement("label");
 let inputFacil = document.createElement("input");
 let inputMedio = document.createElement("input");
 let inputDificil = document.createElement("input");
+let p = document.createElement("p");
 
 function escolherNivel() {
 	if (cont % 2 == 0) {
@@ -41,13 +42,11 @@ function escolherNivel() {
 		inputFacil.setAttribute("id", "facil");
 		inputFacil.setAttribute("onclick", "level('facil')");
 		inputMedio.setAttribute("type", "submit");
-		inputMedio.setAttribute("value", "☢️☢️");
 		inputMedio.setAttribute("id", "medio");
-		inputMedio.setAttribute("onclick", "level('medio')");
 		inputDificil.setAttribute("type", "submit");
-		inputDificil.setAttribute("value", "☢️☢️☢️");
 		inputDificil.setAttribute("id", "dificil");
-		inputDificil.setAttribute("onclick", "level('dificil')");
+		p.setAttribute("id", "mensagem-level");
+		p.textContent = mensagem;
 		if(pontuacao<200){
 			inputMedio.setAttribute("class", "bloqueado");
 			inputMedio.removeAttribute("onclick");
@@ -78,13 +77,13 @@ function escolherNivel() {
 			inputDificil.setAttribute("type", "submit");
 			inputDificil.removeAttribute("class", "bloqueado");
 		}
-		
 		document.getElementById("levelFacil").appendChild(inputFacil);
 		document.getElementById("levelFacil").appendChild(labelFacil);
 		document.getElementById("levelMedio").appendChild(inputMedio);
 		document.getElementById("levelMedio").appendChild(labelMedio);
 		document.getElementById("levelDificil").appendChild(inputDificil);
 		document.getElementById("levelDificil").appendChild(labelDificil);
+		document.getElementById("botoes").appendChild(p);
 		cont++;
 	}
 	else{
