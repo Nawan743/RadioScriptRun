@@ -1,66 +1,66 @@
 * {
-    margin: 0px;
-    box-sizing: content-box;
-    font-family: 'Acme', sans-serif;
+	margin: 0px;
+	box-sizing: content-box;
+	font-family: 'Acme', sans-serif;
 }
 
 html {
-    height: 100%;
+	height: 100%;
 }
 
 main {
-    text-align: center;
-    /*background-color: yellow;*/
-    background-image: url("../images/banner.jpg");
-    background-size: 100%;
-    background-position: 0px 60px;
-    background-repeat: no-repeat;
-    border-radius: 13px;
-    border: 15px solid black;
-    box-shadow: -1px 1px 10px 3px lightgray;
-    width: 50%;
-    height: 75%;
-    font-size: 1.6rem;
-    position: relative;
+	text-align: center;
+	/*background-color: yellow;*/
+	background-image: url("../images/banner.jpg");
+	background-size: 100%;
+	background-position: 0px 60px;
+	background-repeat: no-repeat;
+	border-radius: 13px;
+	border: 15px solid black;
+	box-shadow: -1px 1px 10px 3px lightgray;
+	width: 50%;
+	height: 75%;
+	font-size: 1.6rem;
+	position: relative;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
-    /* box-shadow: -1px 1px 5px 3px black; */
-    background-image: url("../images/fundo-desktop.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
+	/* box-shadow: -1px 1px 5px 3px black; */
+	background-image: url("../images/fundo-desktop.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
-input{
-    text-align: center;
-    background-color: rgba(142, 170, 48, 0.35);
-    color: rgb(255, 251, 251, 0.8);
-    text-shadow:1px 1px 2px grey;
-    border: none;
-    border-radius:100%;
-    width:140px;
-    height:145px;
-    font-size:80px;
-    cursor: pointer;
-    box-shadow:0px 0px 10px 4px green;
-    transition: all 0.2s;
+input {
+	text-align: center;
+	background-color: rgba(142, 170, 48, 0.35);
+	color: rgb(255, 251, 251, 0.8);
+	text-shadow: 1px 1px 2px grey;
+	border: none;
+	border-radius: 100%;
+	width: 140px;
+	height: 145px;
+	font-size: 80px;
+	cursor: pointer;
+	box-shadow: 0px 0px 10px 4px green;
+	transition: all 0.2s;
 }
 
 div input:focus, input:hover {
-	box-shadow:0px 0px 10px 5px lightgreen;
+	box-shadow: 0px 0px 10px 5px lightgreen;
 }
 
 header {
 	background-color: black;
-    color: white;
+	color: white;
 }
 
 h1 {
-    margin: 0px 30px;
+	margin: 0px 30px;
 }
 
 .menu-botao {
@@ -78,45 +78,49 @@ h1 {
 	font-size: 35px;
 	padding: 0px;
 	margin: 20px 40px;
-	width:20%;
-	position:absolute;
-	top:75%;
+	width: 20%;
+	position: absolute;
+	top: 75%;
 }
 
-p{
+p {
 	color: white;
 }
 
-#levelFacil, #levelMedio, #levelDificil{
-	display:inline;
-	padding:10px;
+#levelFacil, #levelMedio, #levelDificil {
+	display: inline;
+	padding: 10px;
 }
 
-label{
-	color:white;
-	font-size:1.6rem;
+label {
+	color: white;
+	font-size: 1.6rem;
 	position: absolute;
-	top:150%;
+	top: 150%;
 }
 
 #levelFacil label {
-	left:14%;
-}
-#levelMedio label {
-	left:46%;
-}
-#levelDificil label {
-	left:78%;
+	left: 14%;
 }
 
-#facil{
-	left:2%;
+#levelMedio label {
+	left: 46%;
 }
-#medio{
-	left:35%;
+
+#levelDificil label {
+	left: 78%;
 }
-#dificil{
-	left:67%;
+
+#facil {
+	left: 2%;
+}
+
+#medio {
+	left: 35%;
+}
+
+#dificil {
+	left: 67%;
 }
 
 #botoes {
@@ -127,4 +131,11 @@ label{
 
 .bloqueado {
 	filter: grayscale(100%);
+}
+
+#mensagem-level {
+	position: absolute;
+	top: 200%;
+	left: 10%;
+	text-shadow: 3px 3px 10px black;
 }
