@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="Models.Player"%>
+<%@ page import="Models.*"%>
 
 <%
 	ArrayList<Player> ranking = (ArrayList<Player>) (request.getAttribute("ranking"));
@@ -28,7 +28,12 @@
 <!-- CSS -->
 <link rel="stylesheet" href="./resources/estilo/rank.css"
 	type="text/css">
-
+<style>
+#rank-player {
+	background-color: black;
+	color: yellow;
+}
+</style>
 </head>
 <body>
 	<c:import url="audio.jsp"></c:import>
@@ -65,6 +70,27 @@
 			</tr>
 			<%
 				}
+				}
+
+				String player = (String) session.getAttribute("player");
+				Integer posicao = 1;
+				if (ValidaSessao.estaValidado(session)) {
+					for (int i = 0; i < ranking.size(); i++) {
+						if (ranking.get(i).getNome().equals(player)) {
+							posicao = i;
+							//System.out.println(ranking.get(i).getNome());
+							//System.out.println(posicao);
+						}
+					}
+					if (posicao >= 10) {
+			%>
+			<tr id="rank-player">
+				<td><%=(posicao + 1)%></td>
+				<td><%=ranking.get(posicao).getNome()%></td>
+				<td><%=ranking.get(posicao).getRank()%></td>
+			</tr>
+			<%
+					}
 				}
 			%>
 		</table>
