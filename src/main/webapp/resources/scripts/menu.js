@@ -48,7 +48,7 @@ function escolherNivel() {
 		inputDificil.setAttribute("id", "dificil");
 		p.setAttribute("id", "mensagem-level");
 		p.textContent = mensagem;
-		if(pontuacao<200){
+		if(pontuacao<100){
 			inputMedio.setAttribute("class", "bloqueado");
 			inputMedio.removeAttribute("onclick");
 			inputMedio.removeAttribute("value");
@@ -62,7 +62,7 @@ function escolherNivel() {
 			inputDificil.removeAttribute("type");
 			inputDificil.setAttribute("type", "button");
 		}
-		else if(pontuacao<500){
+		else if(pontuacao<300){
 			inputMedio.setAttribute("value", "☢️☢️");
 			inputMedio.setAttribute("onclick", "level('medio')");
 			inputMedio.setAttribute("type", "submit");

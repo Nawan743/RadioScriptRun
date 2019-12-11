@@ -26,8 +26,8 @@
 </head>
 <body>
 	<c:import url="audio.jsp"></c:import>
-	<h1>Chernobyl Studios Features:</h1>
-    <h2>RadioScript Run</h2>
+	<img alt="logo-equipe" src="/resources/images/logoEquipe.png">
+	<img alt="logo-jogo" src="/resources/images/logo.png">
 	<main class="col-6">
         <h3>Desenvolvedores:</h3>
         <ul>

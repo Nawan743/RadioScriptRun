@@ -331,13 +331,13 @@ const factoryGame = function() {
 	function updateScore() {
 		current_score++;
 		document.getElementById('current_score_label').innerHTML = pad(current_score, 6);
-		if (current_score == 200 && level == 1) { // Nível 2
+		if (current_score == 100 && level == 1) { // Nível 2
 			changeLevel(++level).then(() => {
 				levelConfig = configLevelGame(level);
 				startGame();
 				console.log('ja foi')
 			});
-		} else if(current_score == 500 && level == 2) { // Nível 3
+		} else if(current_score == 300 && level == 2) { // Nível 3
 			changeLevel(++level).then(() => {
 				levelConfig = configLevelGame(level);
 				startGame();
