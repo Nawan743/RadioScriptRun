@@ -18,11 +18,12 @@ function configLevelGame(level) {
 				{src: 'barril.png', position: 'down'}
 			],
 			speedScore:300,
-			speedJump: 600,
+			speedJump: 700,
 			speedJumpUp: 15,
 			speedmoveObstacle: 5,
 			distanceMoveObstacle:1,
-			multiplyGenerateObstacle:900
+			multiplyGenerateObstacle:900,
+			animeBackgroundImage: "url('./resources/images/correndo.gif')"
 		};
 	} else if (level == 2) {
 		return {
@@ -36,7 +37,8 @@ function configLevelGame(level) {
 			speedJumpUp: 10,
 			speedmoveObstacle: 3,
 			distanceMoveObstacle:2,
-			multiplyGenerateObstacle:500
+			multiplyGenerateObstacle:500,
+			animeBackgroundImage: "url('./resources/images/correndoMedio.gif')"
 		};
 	} else if (level == 3) {
 		return {
@@ -52,7 +54,8 @@ function configLevelGame(level) {
 			speedJumpUp: 7,
 			speedmoveObstacle: 1,
 			distanceMoveObstacle:3,
-			multiplyGenerateObstacle:400
+			multiplyGenerateObstacle:400,
+			animeBackgroundImage: "url('./resources/images/correndoDificil.gif')"
 		};
 	}
 }
@@ -75,7 +78,7 @@ const factoryPlayer = function() {
 
 	function run() {
 		marginTop = 230;
-		document.getElementById('idBoneco').style.backgroundImage = "url('./resources/images/correndo.gif')";
+		document.getElementById('idBoneco').style.backgroundImage = levelConfig.animeBackgroundImage;
 		document.getElementById('idBoneco').style.height = "100px";
 		document.getElementById('idBoneco').style.marginTop = `${marginTop}px`;
 	}
@@ -277,7 +280,8 @@ const factoryGame = function() {
 		generateObstacles,
 		gameOver,
 		piscarElemento,
-		callRanking
+		callRanking,
+		resetCurrentScore
 	}
 
 	let cronCurrentScore;
@@ -307,7 +311,7 @@ const factoryGame = function() {
 		oReq.onload = function() {
 			console.log('salvou os pontos')
 			// Exibe mensagem
-			document.getElementById('msgGeral').innerHTML = "Pressione <i>espaço</i> para visualizar o ranking";
+			document.getElementById('msgGeral').innerHTML = "Pressione <i>R</i> para reiniciar ou <i>espaço</i> para visualizar o ranking";
 			document.getElementById('msgGeral').style.display = "block";
 			cron_piscar = setInterval(() => {
 				piscarElemento('msgGeral');
@@ -317,6 +321,11 @@ const factoryGame = function() {
 
 	function startCurrentScore() {
 		cronCurrentScore = setInterval(updateScore, levelConfig.speedScore);
+	}
+
+	function resetCurrentScore() {
+		current_score = 0;
+		document.getElementById('current_score_label').innerHTML = pad(current_score, 6);
 	}
 
 	function updateScore() {
@@ -427,8 +436,29 @@ function startGame() {
 	game.generateObstacles(1);
 }
 
+function restartGame() {
+	game.resetCurrentScore();
+	// Remove todos os obstáculos
+	const obstacle = factoryObstacle();
+	for (let i = 0; i < listObstacles.length; i++) {
+		obstacle.removeObstacle('bloco'+i);
+	}
+	document.getElementById('gameOver').style.display = 'none';
+	gameStarted = false;
+	CtrlGameOver = false;
+	player.await();
+	//Exibe mensagem
+	clearInterval(cron_piscar);
+	document.getElementById('msgGeral').innerHTML = "Pressione <i>espaço</i> para começar";
+	document.getElementById('msgGeral').style.display = "block";
+	cron_piscar_inicial = setInterval(() => {
+		game.piscarElemento('msgGeral');
+	}, 250);
+
+	listObstacles = [];
+}
+
 function keyDown(event) {
-	console.log(`CtrlGameOver ${CtrlGameOver}`);
 	const keyPressed = event.key;
 
 	if (
@@ -454,6 +484,11 @@ function keyDown(event) {
 		startGame();
 	}
 
+	// Reinicia o jogo
+	if ((keyPressed === 'r' || keyPressed === 'R') && gameStarted && CtrlGameOver) {
+		restartGame();
+	}
+	
 	// Encerra o jogo
 	if (keyPressed === ' ' && gameStarted && CtrlGameOver) {
 		game.callRanking();
