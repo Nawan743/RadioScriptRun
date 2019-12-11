@@ -42,6 +42,7 @@ function escolherNivel() {
 		inputFacil.setAttribute("id", "facil");
 		inputFacil.setAttribute("onclick", "level('facil')");
 		inputMedio.setAttribute("type", "submit");
+		inputMedio.setAttribute("value", "☢️☢️");
 		inputMedio.setAttribute("id", "medio");
 		inputDificil.setAttribute("type", "submit");
 		inputDificil.setAttribute("id", "dificil");
