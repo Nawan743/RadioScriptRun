@@ -11,11 +11,11 @@ function cadastro(){
     confirmPass.style.borderBottom = "2px solid black";
     email.style.borderBottom = "2px solid black";
     
-    // let regex = new RegExp("[A-z0-9]{6}");
+    let regex = new RegExp("[A-z0-9]{6}");
     if(user.value == ""){
         alert("Digite o usuario");
         user.style.borderBottom = "2px solid red";
-    }else if(pass.value == "" /*&& regex.test(pass)*/){
+    }else if(pass.value == "" && regex.test(pass)){
         alert("Digite sua senha");
         pass.style.borderBottom = "2px solid red";
     }else if(confirmPass.value == ""){

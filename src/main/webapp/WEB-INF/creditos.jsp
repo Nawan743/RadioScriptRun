@@ -43,7 +43,9 @@
         </ul> -->
 	</main>
 	<main class="col-6">
-        <p>Este jogo foi desenvolvido durante o Projeto Integrador II, matéria do 2º período do curso de Tecnologia em Sistemas para Internet do IFTM, inspirado no "Chrome Dino" (ou "Jogo do
+		<p>Boris, um dos liquidadores, é sobrevivente de um acidente nuclear terrível que houve em sua cidade, ajude-o a sobreviver neste novo mundo cheio de monstros radiativos e
+		 perigos constantes, enquanto busca uma forma de chegar até à usina para tentar evitar que a situação piore, jamais olhe para trás e lembre-se: CORRA!</p>
+        <p id="description">Este jogo foi desenvolvido durante o Projeto Integrador II, matéria do 2º período do curso de Tecnologia em Sistemas para Internet do IFTM, inspirado no "Chrome Dino" (ou "Jogo do
             Dinossauro"), com um tema baseado no acidente nuclear de Chernobyl, acontecido entre dia 25 e 26 de abril de 1986. 
         </p>
         <form action="/">
