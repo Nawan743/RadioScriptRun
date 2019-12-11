@@ -34,17 +34,33 @@ body {
 	padding: 15px;
 }
 
+input {
+	display: block;
+	background-color: black;
+	color: yellow;
+	border: none;
+	border-radius: 10px;
+	margin: auto;
+	margin-bottom: 0.6rem;
+	margin-top: 0.6rem;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	width: 75%;
+	cursor: pointer;
+}
+
 li{list-style: none;}
 
 h1{
-	margin-top:35px;
+	margin-top:30px;
 	font-size:37px;
 }
 
 h2{font-size:30px}
 
 h1, h2 {
-	text-shadow:1px 1px 2px 1px white;
+	color: yellow;
+	text-shadow:1px 1px 2px 1px black;
 }
 
 .espaco{margin-top:10px}

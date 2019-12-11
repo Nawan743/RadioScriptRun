@@ -44,6 +44,9 @@
         <p>Este jogo foi desenvolvido durante o Projeto Integrador do 2º período do curso de Sistemas para Internet, inspirado no Jogo do
             Dinossauro, com um tema baseado no acidente de Chernobyl, acontecido entre dia 25 e 26 de abril de 1986. 
         </p>
+        <form action="/">
+        	<input type="submit" value="Voltar para login" />
+        </form>
 	</main>
 </body>
 </html>
