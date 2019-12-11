@@ -1,12 +1,14 @@
 body{
+	display: flex;
 	background-image: none;
 	background-color: black;
 	display: inherit;
 }
 
 #topo {
-	/*border: 1px solid orange;*/
 	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 30px;
 	width: 70%;
 	color: white;
 	font-size: 14px;
@@ -17,12 +19,17 @@ body{
 	margin-left: 15px;
 }
 
-#record_score, #current_score {
+#record_score, #current_score, #nome_player {
 	display: inline-block;
 }
 
 #record_score {
-	width: 78%;
+	width: 40%;
+}
+
+#nome_player {
+	width: 38%;
+	font-size:36px;
 }
 
 #current_score {
@@ -98,28 +105,28 @@ body{
 }
 
 #msgGeral {
-	font-size:38px;
+	font-size:30px;
 	color: orange;
-	top: 385px;
-	width: 680px;
-	margin-left: -340px;
-	z-index:100;
+	top: 430px;
+	width: 780px;
+	margin-left: -390px;
+	z-index:10000;
 	text-shadow:1px 1px 2px 3px black;
+	height: auto;
 }
 
 #tutorial {
-	font-size:38px;
+	font-size:26px;
 	color: white;
 }
 
 #tutorial p, h1{
     color: white;
     text-shadow: 1px 1px 2px red;
+    margin: 5px 10px;
 }
 
 #tutorial  img{
-     margin: 10px;
+     margin: 5px;
      width: 30px;
-}
-
 }

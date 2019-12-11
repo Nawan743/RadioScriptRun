@@ -31,6 +31,7 @@
     	<div id="record_score">
     		<span>RECORDE</span> <span class="score_label" id="record_score_label"><%=recorde%></span>
     	</div>
+    	<div id="nome_player"></div>
     	<div id="current_score">
     		<span>DISTÂNCIA</span> <span class="score_label" id="current_score_label">00000</span>
     	</div>
@@ -42,6 +43,7 @@
     <div id="gameOver"><span>GAME OVER</span></div>
     <div id="msgLevel"></div>
     <div id="msgGeral"></div>
+    
     <div id="tutorial">
     	<table>
                 <tr class="title">
@@ -53,7 +55,7 @@
                 </tr>
                 <tr class="corpo">
                     <td><img src="./resources/images/key-s.png" alt=""><img src="./resources/images/arrow-down.png" alt=""></td>
-                    <td><p> - Agaixar</p></td>
+                    <td><p> - Abaixar</p></td>
                 </tr>
             </table>
     </div>

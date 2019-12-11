@@ -414,6 +414,8 @@ const factoryGame = function() {
 	return game;
 }
 
+document.getElementById('nome_player').innerHTML = localStorage.getItem('usuario');
+
 let namePlayer = localStorage.getItem('usuario');
 let gameStarted = false;
 let CtrlGameOver = false;
