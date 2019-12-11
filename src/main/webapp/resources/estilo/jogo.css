@@ -30,10 +30,6 @@ body{
 	width: 20%;
 }
 
-
-
-
-
 #caixaBlocos {
 	clear: left;
     width:100%;
@@ -88,10 +84,13 @@ body{
 
 #gameOver {
     color: yellowgreen;
-    top: 40%;
+    top: 30%;
 }
 #gameOver span {
-	text-shadow: 1px 1px 2px 1px whitesmoke;
+	text-shadow: 1px 1px 2px whitesmoke;
+	/*top: 50%;
+  	margin-top: -50px; 
+  	position: absolute;*/
 }
 
 #msgLevel {
@@ -104,4 +103,11 @@ body{
 	top: 385px;
 	width: 680px;
 	margin-left: -340px;
+}
+
+#tutorial {
+	font-size:38px;
+	color: white;
+}
+
 }
