@@ -1,5 +1,6 @@
 package Models;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -13,8 +14,18 @@ import javax.mail.internet.MimeMessage;
 
 public class Email {
 
-	static String emailRemetente = "o nosso email aqui";
-	static String senhaRemetente = "a nossa senha aqui";
+	private final String emailRemetente = carregaInfoEmailRemetente().getProperty("email.address");
+	private final String senhaRemetente = carregaInfoEmailRemetente().getProperty("email.password");
+
+	private Properties carregaInfoEmailRemetente() {
+		Properties prop = new Properties();
+		try {
+			prop.load(getClass().getClassLoader().getResourceAsStream("email.properties"));
+		} catch (IOException e) {
+			System.out.println("Não foi possível ler o arquivo \"email.properties\"!");
+		}
+		return prop;
+	}
 
 	public void enviaEmailBoasVindas(Player player) {
 		String tituloEmail = "CORRA! Você está no RadioScript Run \\o/";

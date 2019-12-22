@@ -46,14 +46,12 @@ public class S3 {
 			// try {
 			//	displayTextInputStream(fullObject.getObjectContent());
 			//} catch (IOException e) {
-			//	// TODO Auto-generated catch block
 			//	e.printStackTrace();
 			// }
 
 			try {
 				players = montaListaPlayers(fullObject.getObjectContent());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -72,7 +70,6 @@ public class S3 {
 				try {
 					fullObject.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -80,7 +77,6 @@ public class S3 {
 				try {
 					objectPortion.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -88,7 +84,6 @@ public class S3 {
 				try {
 					headerOverrideObject.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

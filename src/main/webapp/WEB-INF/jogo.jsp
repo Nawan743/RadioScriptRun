@@ -61,8 +61,6 @@
             </table>
     </div>
  
-    </div>
-
     <!-- JavaScript -->
     <script src="./resources/scripts/jogo.js"></script>
 </body>

@@ -20,5 +20,5 @@ target/
 
 *.class
 *.MF
-*.properties
+#*.properties
 MVC/services/S3.java
